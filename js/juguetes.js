@@ -9,15 +9,22 @@ async function mindyJuguetes() {
         let datos = await fetch("https://apipetshop.herokuapp.com/api/articulos?tipo=Juguete")
         let products = await datos.json()
         let productos = products.response
+        console.log(tipo(productos,"Medicamento"));
         let juguetes = tipo(productos, "Juguete")
         cardCreator(juguetes)
         // filtradoCheck(juguetes)
-
+        
         inputsNumber.addEventListener("click", () => { range(juguetes) })
-
+        
         inputText.addEventListener("keyup", () => {
              filtroText(range(juguetes), inputText.value)
-
+        
+        })
+        let botonCompra = document.querySelectorAll(".compra")
+        botonCompra.forEach( e => {
+            e.addEventListener("click", () =>{
+                console.log("hola");
+            })
         })
         // filtrado(productos)
     }
@@ -50,7 +57,7 @@ function cardCreator(array) {
     <div class=" card-text d-flex justify-content-between gap-4 flex-wrap p-2">
                         <p class="fw-bold">Price $ ${card.precio}</p>
                         <p class="fw-bold">Stock  ${card.stock}</p>
-                        <a href="${card._id}" class="btn" id="${card._id}">More info</a>
+                        <button class="compra">Comprar</button>
                 </div>
         </div>
 </article>
