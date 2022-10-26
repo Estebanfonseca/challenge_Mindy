@@ -1,7 +1,8 @@
-let input= document.getElementById("text-search-js")
+let inputText= document.getElementById("text-search-js")
+console.log(inputText)
 let checkboxes= document.getElementById("filtro")
 let container= document.getElementById("container")
-console.log(input)
+
 
 async function mindyJuguetes(){
    try{ 
@@ -10,22 +11,40 @@ async function mindyJuguetes(){
     let productos= products.response
     
     let juguetes= tipo(productos,"Juguete")
-   
+    console.log(juguetes[0].nombre);
     
     cardCreator (juguetes)
     // filtradoCheck(juguetes)
     checkboxes.addEventListener("change",(e)=>{
-     let filtradoCheck=   filtrado(juguetes)
-        if(filtradoCheck.length !==0){
-            container.innerHTML=""
-        }
-        cardCreator(filtradoCheck)
+        container.innerHTML = ""
+        cardCreator(filtrado(juguetes))
+    // let text= (filtroText(inputText.value,juguetes))
+
+    //       if(text.length !==0){
+    //             container.innerHTML=""
+    //             cardCreator(text)
+    //         } else {
+        
+    //             prodNotFound()
+    //         }
+            
    })
 
-   input.addEventListener("keyup",(e)=>{
-    console.log(e.target)
-   })
 
+
+   inputText.addEventListener("keyup", () => {
+     let check=filtrado(juguetes)
+    
+    
+         if(check.length !==0){
+          container.innerHTML=""
+      cardCreator(text)
+        } else {
+            prodNotFound()
+       }
+
+    
+})
     // filtrado(productos)
 }
 catch(error){
@@ -89,35 +108,55 @@ printFiltrado()
 
 function filtrado(array) {
     
-    
+    //filtrado de precios
     let productoOption1= (array.filter(e=> e.precio >= 300 && e.precio <= 400))
     let productoOption2= (array.filter(e=> e.precio >= 401 && e.precio <= 500))
     let productoOption3= (array.filter(e=> e.precio >= 501))
-    
+    //filtrado de checks
     let checked = [...document.querySelectorAll('input[type="checkbox"]')].filter( check => check.checked)
     let checkSelected= checked.map(checked => checked.value)
     if (checkSelected =="option1"){
-        cardCreator (productoOption1)
+        console.log(productoOption1);
+        return productoOption1
     } else if (checkSelected=="option2"){
-    
-        cardCreator (productoOption2)
+        console.log(productoOption2);
+        return productoOption2
     } else if (checkSelected=="option3"){
-      
-        cardCreator (productoOption3)
+        console.log(productoOption3);
+        return productoOption3
     } else if(checkSelected.length===0){
-        cardCreator (array)
-    }
+        return array
+    }  
 
-    let arrayFiltrado = checkSelected.filter(producto => producto.name.toLowerCase().includes(texto.toLowerCase())|| producto.price == texto)
-    container.innerHTML= ""
-    cardCreator(arrayFiltrado)
        
 }
 
+function filtroText(array){
+    let arrayFiltrado = array.filter(producto => producto.nombre.toLowerCase().includes(texto.toLowerCase()|| producto.descripcion.toLowerCase().includes(texto.toLowerCase()|| producto.precio == texto)))
+   
+    return arrayFiltrado
+}
+// function textoSearch(texto, array) {
+        
+    
+//     let arrayFiltrado = array.filter(array => array.nombre.toLowerCase().includes(texto.toLowerCase()|| array.descripcion.toLowerCase().includes(texto.toLowerCase()|| array.precio == texto)))
+   
+//     return arrayFiltrado
+    
+   
 
+// }
 
-//data.filter(function(x){ return x.Price >= 250 && x.Price <= 800});
-
+function prodNotFound(){
+    
+    container.innerHTML = `
+    <div class="card ">
+    <p class="card-text"> <span class="fw-bold">"${inputText.value}"</span> No encontramos un producto que se ajuste a tu búsqueda.. </p> 
+   
+  </div>
+    `
+     
+}
 ///// hasta acá va Laila
 //Nico tarea: cambiar el color de productos con 3 unidades para venderlos más rápido (cambiar background de la card)
 // ordenar las cards para que estén primero
