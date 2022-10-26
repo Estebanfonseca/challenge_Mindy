@@ -1,77 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="./style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-</head>
-<body>
-    <header>
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <header></header>
+    <main
+      class="container-fluid cardcontainer d-flex justify-content-center align-items-center"
+    >
+      <form class="col-sm-6">
+        <div class="mb-3">
+          <label for="nombreYapellidoInput" class="form-label"
+            >Nombre y apellido:</label
+          >
+          <input
+            type="text"
+            class="form-control mb-2"
+            id="nombreYapellidoInput"
+            placeholder="Nombre y Apellido"
+            required
+          />
+        </div>
 
-    </header>
-    <main class="container-fluid cardcontainer d-flex justify-content-center align-items-center">
-        <form class="col-sm-6">
-            <div class="mb-3">
-                <label for="nombreYapellidoInput" class="form-label">Nombre y apellido:</label>
-                <input type="text" class="form-control mb-2" id="nombreYapellidoInput" placeholder="Nombre y Apellido">
-              </div>
+        <div class="mb-3">
+          <label for="e-mail" class="form-label">e-mail:</label>
+          <input
+            type="email"
+            class="form-control mb-2"
+            id="e-mail"
+            placeholder="name@example.com"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="telefono" class="form-label">Teléfono</label>
+          <input
+            type="number"
+            class="form-control mb-2"
+            id="telefono"
+            placeholder="+54-911****-****"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="nombreDeLaMascotaInput" class="form-label"
+            >Nombre de la Mascota:</label
+          >
+          <input
+            type="text"
+            class="form-control mb-2"
+            id="nombreDeLaMascotaInput"
+            placeholder="Nombre de la mascota"
+            required
+          />
+        </div>
+        <label for="flexCheckDefault" required
+          >Selecciona por tu mascota:
+          <div class="form-check">
+            <label class="form-check-label">
+              Perro
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value="Perro"
+                id="flexCheckDefault"
+              />
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label">
+              Gato
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value="Gato"
+                id="flexCheckDefault"
+              />
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label">
+              Tortuga
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value="Tortuga"
+                id="flexCheckDefault"
+              />
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label">
+              Animal Exótico
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value="Animal Exótico"
+                id="flexCheckDefault"
+              />
+            </label></div
+        ></label>
+        <div class="mb-3">
+          <label for="Comentarios" class="form-label">Comentarios:</label>
+          <textarea
+            class="form-control"
+            maxlength="140"
+            id="Comentarios"
+            rows="3"
+          ></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" id="enviar-js">
+          Enviar
+        </button>
+      </form>
 
-            <div class="mb-3">
-                <label for="e-mail" class="form-label">e-mail:</label>
-                <input type="email" class="form-control mb-2 " id="e-mail" placeholder="name@example.com">
-              </div>
-              <div class="mb-3">
-                <label for="telefono" class="form-label">Teléfono</label>
-                <input type="number" class="form-control mb-2 " id="telefono" placeholder="+54-911****-****">
-              </div>
-              <div class="mb-3">
-                <label for="nombreDeLaMascotaInput" class="form-label">Nombre de la Mascota:</label>
-                <input type="text" class="form-control  mb-2 " id="nombreDeLaMascotaInput" placeholder="Nombre de la mascota">
-              </div>
-              <label for="flexCheckDefault">Selecciona por tu mascota:
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="Perro" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
-                Perro
-                </label>
-              </div><div class="form-check">
-                <input class="form-check-input" type="checkbox" value="Gato" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
-                  Gato
-                </label>
-              </div><div class="form-check">
-                <input class="form-check-input" type="checkbox" value="Tortuga" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
-                  Tortuga
-                </label>
-              </div><div class="form-check">
-                <input class="form-check-input" type="checkbox" value="Animal Exótico" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
-                  Animal Exótico
-                </label>
-              </div></label>
-              <div class="mb-3">
-                <label for="Comentarios" class="form-label">Comentarios:</label>
-                <textarea class="form-control" maxlength="140" id="Comentarios" rows="3"></textarea>
-              </div>
-              <button type="submit" class="btn btn-primary">Submit</button>
-          </form>
-
-
-
-
-        <!-- nombre, apellido, mail y teléfono
+      <!-- nombre, apellido, mail y teléfono
 ● nombre de la mascota
 ● checks para indicar el tipo de mascota que tiene
 ● casilla para comentarios. 
  -->
     </main>
-    <footer>
-
-    </footer>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-</body>
+    <footer></footer>
+    <script src="./js/contact.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
