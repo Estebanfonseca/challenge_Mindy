@@ -69,18 +69,25 @@
             </div>
         </div>
     </header>
-    <div id="filtro" class="d-flex justify-content-evenly ">
-        
-        <div class="form-check-inline d-flex gap-4 pt-5 f-wrap" id="checkboxes">
-
-        </div>
-        
-    </div>   
-    <input id="text-search-js" type="search" placeholder="Buscar" aria-label="Search" >
-    <div class="container mt-5 rounded-4 p-4">
-    <div class="row justify-content-evenly gap-5 row-cols-2 row-cols-lg-5 g-2 g-lg-3" id="container" > 
-    </div>
-    </div>
+    <main>
+     <div id="filtro" class="d-flex justify-content-evenly ">
+      <form >
+      <div class="form-check-inline d-flex gap-4 pt-5 f-wrap" id="inputs">
+          <h6>Elija el rango de precio</h6>
+         <label >Valor minimo:<input type="number" placeholder="Ej: 200" id="minimo"></input></label> 
+         <label >Valor maximo:<input type="number" placeholder="Ej: 1000" id="maximo"></input></label>
+         <input type="button" value="Aplicar cambios" id="botonRango"> 
+      </div>
+      </form>
+  </div>   
+  <input id="text-search-js" type="search" placeholder="Buscar" aria-label="Search" >
+  <div class="container mt-5 rounded-4 p-4">
+  <div class="row justify-content-evenly gap-5 row-cols-2 row-cols-lg-5 g-2 g-lg-3" id="container" > 
+  </div>
+  </div>
+ 
+    </main>
+    
 
     <footer>
         <div>
