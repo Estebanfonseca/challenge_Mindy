@@ -53,11 +53,7 @@ footer div{
 
 }
 footer div p{
-<<<<<<< HEAD
   width: 100%;
-=======
-  
->>>>>>> master
   background-color:#AFA939;
   border-radius: .8rem;
 }
@@ -116,44 +112,28 @@ section{
     position: relative;
     top:2%;
     left:18%;
-<<<<<<< HEAD
     width: 36%;
-=======
-    width: 500px;
-    margin: 0 auto 0 auto;
->>>>>>> master
     perspective: 1000px;
   }
   
   .carousel {
-<<<<<<< HEAD
     width: 30%;
-=======
-    width: 20%;
->>>>>>> master
     height: 5%;
     transform-style: preserve-3d; 
     animation: rotate360 60s infinite linear;
   }
   .carousel__face { 
     position: absolute;
-<<<<<<< HEAD
     width: 95%;
-=======
-    width: 100px;
->>>>>>> master
     height: 100px;
     top:0;
     background-size: cover;
     display: flex;
-<<<<<<< HEAD
     border: 5px solid #F7B71D;
   }
   .carousel__face img{
     object-fit: cover;
     width: 100%;
-=======
->>>>>>> master
   }
 
 
@@ -252,12 +232,5 @@ article:nth-child(2) a {
 h4{
   text-align: center;
 }
-<<<<<<< HEAD
 
-=======
-.pie{
-  position: absolute;
-  bottom: 0;
-}
->>>>>>> master
 
