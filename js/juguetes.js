@@ -33,15 +33,9 @@ async function mindyJuguetes(){
 
 
    inputText.addEventListener("keyup", () => {
-     let check=filtrado(juguetes)
+   console.log(filtroText(inputText.value,juguetes))
     
     
-         if(check.length !==0){
-          container.innerHTML=""
-      cardCreator(text)
-        } else {
-            prodNotFound()
-       }
 
     
 })
@@ -117,6 +111,7 @@ function filtrado(array) {
     let checkSelected= checked.map(checked => checked.value)
     if (checkSelected =="option1"){
         console.log(productoOption1);
+
         return productoOption1
     } else if (checkSelected=="option2"){
         console.log(productoOption2);
@@ -132,6 +127,7 @@ function filtrado(array) {
 }
 
 function filtroText(array){
+    
     let arrayFiltrado = array.filter(producto => producto.nombre.toLowerCase().includes(texto.toLowerCase()|| producto.descripcion.toLowerCase().includes(texto.toLowerCase()|| producto.precio == texto)))
    
     return arrayFiltrado
