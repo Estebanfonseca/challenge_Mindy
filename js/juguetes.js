@@ -7,11 +7,7 @@ let productosStorage = localStorage.getItem("Juguetes")
 productosStorage = JSON.parse(productosStorage)
 let arrayIdJugueteCarrito = []
 
-    productosStorage.forEach(e => {
-        return arrayIdJugueteCarrito = arrayIdJugueteCarrito.concat(e._id) 
-    })
-    arrayIdJugueteCarrito=  new Set(arrayIdJugueteCarrito)
-    arrayIdJugueteCarrito= [...arrayIdJugueteCarrito]
+    
 
 async function mindyJuguetes() {
     try {
@@ -70,10 +66,7 @@ function tipo(array, propiedad) {
 
 // function imprimir cards de productos
 function cardCreator(array) {
-    let estiloFondo;
-    array.forEach(e => {
-        console.log(e);
-    })
+    
     
     document.getElementById("container").innerHTML = ""
     if (array.length > 0) {
