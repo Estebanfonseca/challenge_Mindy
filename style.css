@@ -1,4 +1,9 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+*{
+  font-family: 'Acme', sans-serif;
+  color: rgb(86, 83, 83);
+}
 
 header{
     width: 100%;
@@ -13,16 +18,22 @@ main{
     min-height: 35vh;
     background-color: #FDEF96;
     padding: 1rem;
+    
 }
 h1{
     text-align: center;
+    font-size: 2rem;
+    color: #F7B71D;
+    text-shadow: 2px 2px black;
 }
 h2{
     color: #F7B71D;
     text-shadow: 2px 2px black;
+
 }
 .navbar{
     background-color: #FDEF96;
+    font-size: 1.3rem;
 }
 #main-index section{
     display: flex;
@@ -35,6 +46,107 @@ h2{
     background-color: aliceblue;
     padding: 1rem;
     border-radius: 1rem;
+}
+
+/*CARDS*/
+/* From uiverse.io by @alexruix */
+.card {
+  width: 320px;
+  height: 254px;
+  padding: .8em;
+  background: #f5f5f5;
+  position: relative;
+  overflow: visible;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 1.2rem;
+  color: rgb(86, 83, 83);
+ }
+ 
+ .card-img {
+  background-color: #f7b78c;
+  height: 40%;
+  width: 190px;
+  object-fit: cover;
+  border-radius: .5rem;
+  transition: .3s ease;
+ }
+ .card-img img {
+  object-fit: cover;
+  width: 100%;
+  border-radius: .5rem;
+ }
+
+ .card-info {
+  padding-top: 10%;
+ }
+ 
+ svg {
+  width: 20px;
+  height: 20px;
+ }
+ 
+ .card-footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+  border-top: 1px solid #ddd;
+  align-self: flex-end;
+ }
+ 
+ /*Text*/
+ .text-title {
+  font-weight: 600;
+  font-size: 1.3em;
+  line-height: 1.5;
+ }
+ 
+ .text-body {
+  font-size: .9em;
+  padding-bottom: 10px;
+  color: rgb(86, 83, 83);
+ }
+ 
+ /*Button*/
+ .card-button {
+  border: 1px solid #252525;
+  display: flex;
+  padding: .3em;
+  cursor: pointer;
+  border-radius: 50px;
+  transition: .3s ease-in-out;
+ }
+ 
+ /*Hover*/
+ .card-img:hover {
+  transform: translateY(-25%);
+  box-shadow: rgba(226, 196, 63, 0.25) 0px 13px 47px -5px, rgba(180, 71, 71, 0.3) 0px 8px 16px -8px;
+ }
+ 
+ .card-button:hover {
+  border: 1px solid #a88b78;
+  border-bottom: 1px solid #a88b78;
+  background-color: #a88b78;
+ }
+ 
+.barra-buscador{
+  width: 100%;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  font-size: 1.2rem;
+}
+
+.barra-buscador fieldset{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  
 }
 footer{
     width: 100%;

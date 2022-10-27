@@ -4,13 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mindy Pet-Shop</title>
+    <title>Remedios</title>
     <link rel="stylesheet" href="./style.css">
+    <link rel="shortcut icon" href="./img/fav2.ico" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-md w-100 rounded-bottom">
+          <div>
+            <a class="navbar-brand pe-5" href="#">
+              <img src="./img/logo1.png" alt="Logo" width="60" height="60" class="d-inline-block align-text-top">
+            </a>
+           </div>
             <div class="container ">
               <a class="navbar-brand" href="#" title="inicio"></a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,9 +26,6 @@
                 <ul class="navbar-nav me-auto d-flex justify-content-center mb-2 mb-lg-0">
                   <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="./index.html">Inicio</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link " aria-current="page" href="./carrito.html">Carrito</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link " aria-current="page" href="./contact.html">Contacto</a>
@@ -69,20 +72,22 @@
             </div>
         </div>
     </header>
-    <main>
+    <main class="d-flex justify-content-evenly  flex-column">
+      <h1>Remedios</h1>
+      <div class="barra-buscador d-flex flex-wrap">
      <div id="filtro" class="d-flex justify-content-evenly ">
-      <form >
-      <div class="form-check-inline d-flex gap-4 pt-5 f-wrap" id="inputs">
-          <h6>Elija el rango de precio</h6>
-         <label >Valor minimo:<input type="number" placeholder="Ej: 200" id="minimo"></input></label> 
-         <label >Valor maximo:<input type="number" placeholder="Ej: 1000" id="maximo"></input></label>
-         <input type="button" value="Aplicar cambios" id="botonRango"> 
-      </div>
+      <form class="form-check-inline d-flex gap-2 pt-5 pe-0 pb-2 f-wrap align-items-center justify-content-evenly" id="inputs">
+        <fieldset> Buscar por precios: 
+          <label class="w-30 pe-4 ps-4" >Valor minimo: <input class="border border-white rounded w-30" type="number" placeholder="Ej: 200" id="minimo" min="200" ></input></label> 
+          <label class="w-30 pe-4 ps-4" >Valor maximo: <input class="border border-white rounded w-30" type="number" placeholder="Ej: 1000" id="maximo" min="300"></input></label>
+          <input type="button" class="btn btn-outline-success  p-1" value="Aplicar" id="botonRango"> 
+         </fieldset>
       </form>
   </div>   
-  <input id="text-search-js" type="search" placeholder="Buscar" aria-label="Search" >
+  <input id="text-search-js" class="border border-white rounded" style="height: 30px;" type="search" placeholder="Buscar" aria-label="Search" >
+</div>
   <div class="container mt-5 rounded-4 p-4">
-  <div class="row justify-content-evenly gap-5 row-cols-2 row-cols-lg-5 g-2 g-lg-3" id="container" > 
+  <div class="d-flex gap-5 justify-content-evenly flex-wrap" id="container" > 
   </div>
   </div>
  
@@ -112,12 +117,12 @@
           </div>
         </article>
         <article>
-          <h4>Atencion al publico</h4>
-            <p>
-          Horario de atencion:
-          L-V 10:00 - 18:00
-          Sabados: 10:00 -13:00
-          </p>
+          <h4>Atención al público</h4>
+          <p>
+        Horario de atención:
+        L-V 10:00 - 18:00
+        Sábados: 10:00 -13:00
+        </p>
           <p> <a href="mailto:mindypetshop@gmail.com"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
             <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/>
           </svg>mindypetshop@gmail.com</a></p>
@@ -129,10 +134,10 @@
           
         </article>
         <article>
-          <h4>Direccion</h4>
+          <h4>Dirección</h4>
           <p><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
             <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
-          </svg>Rio de janeiro 300(caballito) </p>
+          </svg>Rio de janeiro 300(Caballito) </p>
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3283.6980325755553!2d-58.43259848477017!3d-34.61179658045745!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca429815227f%3A0x5d302e497c2cda87!2sR%C3%ADo%20de%20Janeiro%20300%2C%20C1405CCB%20CABA!5e0!3m2!1ses-419!2sar!4v1666752034842!5m2!1ses-419!2sar" width="85%" height="60%" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </article> 
         </div>
