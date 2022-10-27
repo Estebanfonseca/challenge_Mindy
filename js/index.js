@@ -1,24 +1,14 @@
 
-let productosStorage = localStorage.getItem("producto")
+let productosStorage = localStorage.getItem("Juguetes")
 productosStorage = JSON.parse(productosStorage)
+console.log(productosStorage);
+let productosMedicamento = localStorage.getItem("Medicamento")
+productosMedicamento = JSON.parse(productosMedicamento)
+console.log(productosMedicamento);
+let cantidad = [...productosStorage].concat([...productosMedicamento])
+console.log(cantidad);
 
 
-
-
-async function mindyJuguetes() {
-    try {
-        let datos = await fetch("https://apipetshop.herokuapp.com/api/articulos?tipo=Juguete")
-        let products = await datos.json()
-        let productos = products.response
-        
-        
-    
-    }
-    catch (error) {
-        console.log(error);
-    }
-
-}
 
 function nroCarrito(array){
     if (array.length!==0){
@@ -33,4 +23,4 @@ function printCarrito(array){
      `    
 
 }
-nroCarrito(productosStorage)
+printCarrito(nroCarrito(cantidad))
