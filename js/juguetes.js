@@ -2,14 +2,15 @@ let inputText = document.getElementById("text-search-js")
 let checkboxes = document.getElementById("filtro")
 let container = document.getElementById("container")
 let inputsNumber = document.getElementById("botonRango")
-
-
+let carritoProductos = []
+let productos = localStorage.getItem("producto") || []
+productos = JSON.parse(productos)
+console.log(productos);
 async function mindyJuguetes() {
     try {
         let datos = await fetch("https://apipetshop.herokuapp.com/api/articulos?tipo=Juguete")
         let products = await datos.json()
         let productos = products.response
-        console.log(tipo(productos,"Medicamento"));
         let juguetes = tipo(productos, "Juguete")
         cardCreator(juguetes)
         // filtradoCheck(juguetes)
@@ -22,8 +23,20 @@ async function mindyJuguetes() {
         })
         let botonCompra = document.querySelectorAll(".compra")
         botonCompra.forEach( e => {
-            e.addEventListener("click", () =>{
-                console.log("hola");
+            e.addEventListener("click", (e) =>{
+                const botonValue = e.target.value
+                console.log(botonValue);
+                let productoFiltrado = []
+                productoFiltrado  = (juguetes.filter(e => {return e._id === botonValue}))
+                stock = productoFiltrado.map(e => {
+                    return {
+                        stock : e.stock - 1
+                    }
+                })
+                console.log(stock);
+                carritoProductos = carritoProductos.concat(productoFiltrado)
+                
+                localStorage.setItem("producto",JSON.stringify(carritoProductos))
             })
         })
         // filtrado(productos)
@@ -45,6 +58,7 @@ function tipo(array, propiedad) {
 
 // function imprimir cards de productos
 function cardCreator(array) {
+    document.getElementById("container").innerHTML = ""
     if (array.length > 0) {
         array.forEach(card => {
             document.getElementById("container").innerHTML += `
