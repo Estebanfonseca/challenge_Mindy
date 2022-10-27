@@ -10,8 +10,8 @@ let arrayIdJugueteCarrito = []
     productosStorage.forEach(e => {
         return arrayIdJugueteCarrito = arrayIdJugueteCarrito.concat(e._id) 
     })
-    arrayIdJugueteCarrito= new Set(arrayIdJugueteCarrito)
-    console.log(arrayIdJugueteCarrito);
+    arrayIdJugueteCarrito=  new Set(arrayIdJugueteCarrito)
+    arrayIdJugueteCarrito= [...arrayIdJugueteCarrito]
 
 async function mindyJuguetes() {
     try {
