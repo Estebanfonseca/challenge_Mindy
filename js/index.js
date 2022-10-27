@@ -1,5 +1,9 @@
 
-let cantidad=[]
+let productosStorage = localStorage.getItem("producto")
+productosStorage = JSON.parse(productosStorage)
+
+
+
 
 async function mindyJuguetes() {
     try {
@@ -16,17 +20,17 @@ async function mindyJuguetes() {
 
 }
 
-function cantidad(array, contenedor){
-    if (array.length==0){
-
+function nroCarrito(array){
+    if (array.length!==0){
+        printCarrito(array)
     }
 }
 
-function printCarrito(){
+function printCarrito(array){
     let nroCarrito= document.getElementById("nro-carrito-js")
     nroCarrito.innerHTML=
-     ` 2 ${cantidad.length}}
-    `    
+     ` ${array.length}
+     `    
 
 }
-printCarrito()
+nroCarrito(productosStorage)
