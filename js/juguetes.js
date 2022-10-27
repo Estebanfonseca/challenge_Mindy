@@ -18,16 +18,28 @@ async function mindyJuguetes() {
         
         inputText.addEventListener("keyup", () => {
              filtroText(range(juguetes), inputText.value)
+
         
         })
-        let botonCompra = document.querySelectorAll(".compra")
+        
+        
+        // filtrado(productos)
+    }
+    catch (error) {
+        console.log(error);
+    }
+
+}
+
+function eventoComprar(contenedorClass,array) {
+    let botonCompra = document.querySelectorAll(contenedorClass)
         botonCompra.forEach( e => {
             e.addEventListener("click", (e) =>{
 
                 console.log(e);
                 const botonValue = e.target
                 let productoFiltrado = []
-                productoFiltrado  = (juguetes.filter(e => {return e._id === botonValue.id}))
+                productoFiltrado  = (array.filter(e => {return e._id === botonValue.id}))
                 stock = productoFiltrado.map(e => {
                     return {
                         stock : e.stock - 1
@@ -38,12 +50,6 @@ async function mindyJuguetes() {
                 localStorage.setItem("producto",JSON.stringify(carritoProductos))
             })
         })
-        // filtrado(productos)
-    }
-    catch (error) {
-        console.log(error);
-    }
-
 }
 mindyJuguetes()
 /// funcion que filtra por tipo de producto
@@ -91,6 +97,7 @@ function cardCreator(array) {
         document.getElementById("container").innerHTML =`
         <h2>No se puede encontrar productos con este nombre</h2>`
     }
+    eventoComprar(".compra",array)
 }
 function range(array) {
     document.getElementById("container").innerHTML = ""
