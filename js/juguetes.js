@@ -10,7 +10,9 @@ async function mindyJuguetes() {
         let datos = await fetch("https://apipetshop.herokuapp.com/api/articulos?tipo=Juguete")
         let products = await datos.json()
         let productos = products.response
-        let juguetes = tipo(productos, "Juguete")
+        let juguetes = tipo(productos, "Juguete").sort((a,b) =>{ return a.stock -b.stock})
+        
+        
         cardCreator(juguetes)
         // filtradoCheck(juguetes)
         
@@ -32,22 +34,19 @@ async function mindyJuguetes() {
 }
 
 function eventoComprar(contenedorClass,array) {
-    let botonCompra = document.querySelectorAll(contenedorClass)
-        botonCompra.forEach( e => {
+    let botonCarrito = document.querySelectorAll(contenedorClass)
+        botonCarrito.forEach( e => {
             e.addEventListener("click", (e) =>{
 
-                console.log(e);
-                const botonValue = e.target
+                
+                const botonTarget = e.target
                 let productoFiltrado = []
-                productoFiltrado  = (array.filter(e => {return e._id === botonValue.id}))
-                stock = productoFiltrado.map(e => {
-                    return {
-                        stock : e.stock - 1
-                    }
-                })
+                productoFiltrado  = (array.filter(e => {return e._id === botonTarget.id}))
+                
                 carritoProductos = carritoProductos.concat(productoFiltrado)
                 
                 localStorage.setItem("producto",JSON.stringify(carritoProductos))
+                return carritoProductos
             })
         })
 }
@@ -102,11 +101,11 @@ function cardCreator(array) {
 function range(array) {
     document.getElementById("container").innerHTML = ""
     let min = document.getElementById("minimo")
-    console.log(min)
+    
     let max = document.getElementById("maximo")
-    console.log(max.value)
+    
     let precioFiltrado = array.filter(e => (min.value <= e.precio && e.precio <= max.value))
-    console.log(precioFiltrado)
+   
     cardCreator(precioFiltrado)
     if(precioFiltrado.length== 0){
         document.getElementById("container").innerHTML = ""
