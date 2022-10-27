@@ -1,3 +1,3 @@
 let productoSeleccionado = localStorage.getItem("producto")
-productoSeleccionado = json.parse(productoSeleccionado)
+productoSeleccionado = JSON.parse(productoSeleccionado)
 console.log(productoSeleccionado)
