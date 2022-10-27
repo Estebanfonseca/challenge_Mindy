@@ -45,7 +45,7 @@ function eventoComprar(contenedorClass,array) {
                 
                 carritoProductos = carritoProductos.concat(productoFiltrado)
                 
-                localStorage.setItem("Jueguetes",JSON.stringify(carritoProductos))
+                localStorage.setItem("Juguetes",JSON.stringify(carritoProductos))
                 return carritoProductos
             })
         })
