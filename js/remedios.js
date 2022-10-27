@@ -3,7 +3,7 @@ let checkboxes = document.getElementById("filtro")
 let container = document.getElementById("container")
 let inputsNumber = document.getElementById("botonRango")
 let carritoProductos = []
-let productosStorage = localStorage.getItem("producto")
+let productosStorage = localStorage.getItem("Medicamento")
 productosStorage = JSON.parse(productosStorage)
 
 async function mindyMedicamentos() {
@@ -51,7 +51,7 @@ function eventoComprar(contenedorClass,array) {
                 
                 carritoProductos = carritoProductos.concat(productoFiltrado)
                 
-                localStorage.setItem("producto",JSON.stringify(carritoProductos))
+                localStorage.setItem("Medicamento",JSON.stringify(carritoProductos))
                 return carritoProductos
             })
         })
