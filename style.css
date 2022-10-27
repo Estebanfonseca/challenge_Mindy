@@ -39,6 +39,11 @@ h2{
     z-index: 10;
     border-bottom:2px solid rgba(0, 0, 0, 0.505);
 }
+.badge{
+  position:absolute;
+  bottom: 5;
+  
+}
 .gif{
   width: 25%;
 
@@ -98,8 +103,9 @@ h2{
  }
  
  svg {
-  width: 20px;
-  height: 20px;
+  width: 28px;
+  height: 28px;
+  margin-bottom: 15px ;
  }
  
  .card-footer {
