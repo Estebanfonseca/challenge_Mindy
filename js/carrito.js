@@ -22,3 +22,14 @@ function imprimirTabla (array,contenedor){
 
 }
 imprimirTabla(productoSeleccionado,contenedorTabla)
+let arreglo = []
+function acumulador (array){
+  let cantidad = array.reduce((element1,element2) => {
+    return {
+        nombre: element1.nombre
+        cantidad1: element1.cantidad1 + element2.cantidad1,
+    }
+},arreglo)
+}
+acumulador(productoSeleccionado)
+console.log(acumulador(productoSeleccionado))
