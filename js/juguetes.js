@@ -5,6 +5,14 @@ let inputsNumber = document.getElementById("botonRango")
 let carritoProductos = []
 let productosStorage = localStorage.getItem("Juguetes")
 productosStorage = JSON.parse(productosStorage)
+let arrayIdJugueteCarrito = []
+
+    productosStorage.forEach(e => {
+        return arrayIdJugueteCarrito = arrayIdJugueteCarrito.concat(e._id) 
+    })
+    arrayIdJugueteCarrito= new Set(arrayIdJugueteCarrito)
+    console.log(arrayIdJugueteCarrito);
+
 async function mindyJuguetes() {
     try {
         let datos = await fetch("https://apipetshop.herokuapp.com/api/articulos?tipo=Juguete")
@@ -19,7 +27,7 @@ async function mindyJuguetes() {
         inputsNumber.addEventListener("click", () => { range(juguetes) })
         
         inputText.addEventListener("keyup", () => {
-             filtroText(range(juguetes), inputText.value)
+            filtroText(range(juguetes), inputText.value)
 
         
         })
@@ -41,11 +49,11 @@ function eventoComprar(contenedorClass,array) {
                 
                 const botonTarget = e.target
                 let productoFiltrado = []
-                productoFiltrado  = (array.filter(e => {return e._id === botonTarget.id}))
+                productoFiltrado  = array.filter(e => {return e._id === botonTarget.id})
                 
                 carritoProductos = carritoProductos.concat(productoFiltrado)
                 
-                localStorage.setItem("Jueguetes",JSON.stringify(carritoProductos))
+                localStorage.setItem("Juguetes",JSON.stringify(carritoProductos))
                 return carritoProductos
             })
         })
@@ -62,6 +70,11 @@ function tipo(array, propiedad) {
 
 // function imprimir cards de productos
 function cardCreator(array) {
+    let estiloFondo;
+    array.forEach(e => {
+        console.log(e);
+    })
+    
     document.getElementById("container").innerHTML = ""
     if (array.length > 0) {
         array.forEach(card => {
