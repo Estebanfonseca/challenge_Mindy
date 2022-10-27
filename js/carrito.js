@@ -2,16 +2,8 @@ let productoSeleccionado = localStorage.getItem("Juguetes")
 productoSeleccionado = JSON.parse(productoSeleccionado)
 productoSeleccionado.forEach(e=>
  e.cantidad = 0 )
-
 console.log(productoSeleccionado)
 let contenedorTabla = document.getElementById("tbody")
-
-
-
-
-
-
-
 function imprimirTabla (array,contenedor){
      array.forEach(e=>{
         contenedor.innerHTML +=`
@@ -27,48 +19,20 @@ function imprimirTabla (array,contenedor){
     })
 
 }
-
-
-
-
-
-/*   for(let i =0 ; i<array.length;i++)
-  if(array[i].name===array[i+1].name){
-  array.__v += 1
-  array.stock -= 1 */
- /*  let cantidad = array.reduce((element1,element2) => {
-    return {
-        nombre: element2.nombre,
-        stock:(element2.stock)-1,
-        precio:element1.precio + element2.precio,
-        tipo: element1.tipo +element2.tipo,
-        cantidad: 0 + 1,
-    }
-})
-return cantidad */
-/* return array
-}else{
- let arr
-  return arr=[ {
-    nombre: array.nombre,
-    stock:(array.stock)-1,
-    precio:array.precio,
-    tipo: array.tipo,
-    cantidad: array.__v + 1,
-}]}
-} */
-/* let arrai = [acumulador(productoSeleccionado)]
-console.log(arrai) */
-  imprimirTabla(productoSeleccionado,contenedorTabla)
+  imprimirTabla(comparador(productoSeleccionado),contenedorTabla)
 
 
 
    function comparador (array){
-    let a 
-    let f
-    a=array.filter(e=>e._id===e._id)
-    a =[...new Set (a) ]
+    let objeto = {};
+    let a ;
+    a = array.filter(function(e) {
+    let existe = !objeto[e._id];
+    objeto[e._id] = true;
+    return existe;
+    });
     console.log(a)
+    let f
     f= a.map(b=>({nombre:b.nombre, stock: b.stock-1 ,precio: b.precio,tipo:b.tipo,cantidad :b.cantidad +1,}))
     return f
   }
