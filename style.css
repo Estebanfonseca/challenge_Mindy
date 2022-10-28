@@ -7,7 +7,7 @@
 
 header{
     width: 100%;
-    height: 70vh;
+    height: 75vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -207,6 +207,9 @@ footer a{
   margin: 1rem;
 
 }
+footer article{
+  width: 20rem;
+}
 
 footer img{
   width: 100%;
@@ -224,7 +227,7 @@ footer img:hover{
   transform: translateY(5px);
   cursor: pointer;
 }
-aside{
+.aside1{
     width: 20%;
     height: 40%;
     display: flex;
@@ -233,7 +236,7 @@ aside{
     position: sticky;
     top:12%;
 }
-aside img{
+.aside1 img{
   width: 100%;
   border-radius: 1rem 1rem 0 0;
 
@@ -260,7 +263,7 @@ article img{
 
 #carouselExampleCaptions,
 .carousel-inner {
-  height:60vh;
+  height:65vh;
   width: 50%;
   margin-top: 4.5rem;
   display: flex;
@@ -269,11 +272,15 @@ article img{
 }
 
 .carousel-item img{
-  width: 70%;
+  width: 80%;
   height: auto;
   object-fit: cover;
   object-position: 50% 50%;
-  margin: 1rem 0 0 15rem;
+  margin: 1rem 0 0 12rem;
+}
+iframe{
+  width: 85%;
+
 }
 
 
@@ -301,4 +308,113 @@ h4{
   text-align: center;
 }
 
+@media screen and (max-width:1290px){
+  .carousel-item img{
+    margin:0 0 0 9rem;
+  }
+}
+
+@media screen and (max-width:1200px){
+  section{
+    width: 70%;
+  }
+  .aside1{
+    width: 30%;
+  }
+}
+
+@media screen and (max-width:1050px){
+  .carousel-item img{
+    margin:0 0 0 6rem;
+  }
+  footer a{
+    margin: 0;
+  }
+  section div{
+    flex-direction: column;
+    height: auto;
+    gap: 2rem;
+  }
+  section div .card.border.border-light{
+    width: 25rem ;
+  }
+  
+}
+
+@media screen and (max-width:890px){
+  .carousel-item img{
+    width: 100%;
+    margin: 0;
+  }
+}
+@media screen and (max-width:750px){
+  footer div{
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  footer div:nth-child(1) article{
+    width: 100%;
+    
+  }
+  footer article div{
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+  iframe{
+    margin-left: 3rem;
+  }
+
+}
+
+@media screen and (max-width:700px){
+  #main-index{
+    display: flex;
+    flex-direction:  column-reverse;
+    align-items: center;
+  }
+  .aside1{
+    position: unset;
+    width: 90%;
+  }
+  section{
+    width: 90%;
+  }
+}
+
+@media screen and (max-width:600px){
+  header{
+    height: 62vh;
+  }
+}
+@media screen and (max-width:540px){
+  section div .card.border.border-light{
+    width: 20rem ;
+  }
+  
+}
+
+@media screen and (max-width:460px){
+  header{
+    height: 50vh;
+  }
+  section div .card.border.border-light{
+    width: 15rem ;
+    height: 15rem;
+  }
+  
+  section div .card.border.border-light img{
+    object-fit: contain;
+  }
+  section{
+    width: 100%;
+  }
+  .aside1{
+    width: 100%;
+  }
+  iframe{
+    margin-left: 1.5rem;
+  }
+  
+}
 
