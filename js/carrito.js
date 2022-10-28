@@ -19,11 +19,37 @@ function imprimirTabla (array,contenedor){
     })
 
 }
-  imprimirTabla(comparador(productoSeleccionado),contenedorTabla)
+  //imprimirTabla(reduceStats(productoSeleccionado),contenedorTabla)
+
+function reduceStats (array){
+    console.log(array)
+    let StateZero = {
+        nombre: "",
+        tipo: "",
+        stock: 0,
+        precio: 0,
+        cantidad: Number(0) ,
+        }
+    let stats = array.reduce((element1,element2) => {
+      console.log(element1)  
+      return {
+            nombre: element2.nombre,
+            tipo: element2.tipo,
+            stock: element2.stock,
+            precio: element1.precio + element2.precio,
+            cantidad: Number(Number(element1.cantidad)+ 1),
+        }
+    }, StateZero)
+    let vacio = []
+    let vacioDos = []
+    vacio = vacio.concat(stats)
+    vacioDos = vacioDos.concat(vacio)
+    return vacioDos
+  }
+  console.log(reduceStats(productoSeleccionado))
 
 
-
-   function comparador (array){
+  /* function comparador (array){
     let objeto = {};
     let a ;
     a = array.filter(function(e) {
@@ -37,3 +63,5 @@ function imprimirTabla (array,contenedor){
     return f
   }
  console.log(comparador(productoSeleccionado))
+
+ imprimirTabla(comparador(productoSeleccionado),contenedorTabla) */
