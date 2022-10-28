@@ -1,8 +1,6 @@
-let productoSeleccionado = localStorage.getItem("Juguetes")
+let productoSeleccionado = localStorage.getItem("Medicamento")
 productoSeleccionado = JSON.parse(productoSeleccionado)
-productoSeleccionado.forEach(e=>
- e.cantidad = 0 )
-console.log(productoSeleccionado)
+
 let contenedorTabla = document.getElementById("tbody")
 function imprimirTabla (array,contenedor){
      array.forEach(e=>{
@@ -19,19 +17,29 @@ function imprimirTabla (array,contenedor){
     })
 
 }
-  //imprimirTabla(reduceStats(productoSeleccionado),contenedorTabla)
+  imprimirTabla(reduceStats(productoSeleccionado),contenedorTabla) 
 
 function reduceStats (array){
-    console.log(array)
-    let StateZero = {
+    let filtroName = []
+    let vacio = []
+    array.forEach(e => {
+      return filtroName = filtroName.concat(e.nombre)
+    })
+    let filtroNameSet = new Set(filtroName)
+    filtroNameSet = Array.from(filtroNameSet)
+    console.log(filtroNameSet);
+    filtroNameSet.forEach(elemento => {
+      
+      let arrayFiltradoNombre = array.filter(e => elemento === e.nombre)
+      console.log(arrayFiltradoNombre);
+      let StateZero = {
         nombre: "",
         tipo: "",
         stock: 0,
         precio: 0,
         cantidad: Number(0) ,
         }
-    let stats = array.reduce((element1,element2) => {
-      console.log(element1)  
+    let stats = arrayFiltradoNombre.reduce((element1,element2) => { 
       return {
             nombre: element2.nombre,
             tipo: element2.tipo,
@@ -40,11 +48,14 @@ function reduceStats (array){
             cantidad: Number(Number(element1.cantidad)+ 1),
         }
     }, StateZero)
-    let vacio = []
-    let vacioDos = []
-    vacio = vacio.concat(stats)
-    vacioDos = vacioDos.concat(vacio)
-    return vacioDos
+      vacio = vacio.concat(stats)
+    })
+    
+    
+    
+    
+    
+    return vacio
   }
   console.log(reduceStats(productoSeleccionado))
 
