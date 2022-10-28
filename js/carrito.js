@@ -1,5 +1,11 @@
-let productoSeleccionado = localStorage.getItem("Medicamento")
-productoSeleccionado = JSON.parse(productoSeleccionado)
+let juguetesSeleccionado = localStorage.getItem("Juguetes")
+juguetesSeleccionado = JSON.parse(juguetesSeleccionado)
+let medicamentoSeleccionado = localStorage.getItem("Medicamento")
+medicamentoSeleccionado = JSON.parse(medicamentoSeleccionado)
+let productoSeleccionado = []
+productoSeleccionado = concatProductos(medicamentoSeleccionado,productoSeleccionado)
+productoSeleccionado = concatProductos(juguetesSeleccionado,productoSeleccionado)
+
 
 let contenedorTabla = document.getElementById("tbody")
 function imprimirTabla (array,contenedor){
@@ -18,7 +24,13 @@ function imprimirTabla (array,contenedor){
 
 }
   imprimirTabla(reduceStats(productoSeleccionado),contenedorTabla) 
-
+function concatProductos(array,arrayConcatenar) {
+  arrayConcatenar
+  array.forEach(e => {
+    arrayConcatenar = arrayConcatenar.concat(e)
+  })
+  return arrayConcatenar
+}
 function reduceStats (array){
     let filtroName = []
     let vacio = []
@@ -27,11 +39,10 @@ function reduceStats (array){
     })
     let filtroNameSet = new Set(filtroName)
     filtroNameSet = Array.from(filtroNameSet)
-    console.log(filtroNameSet);
     filtroNameSet.forEach(elemento => {
       
       let arrayFiltradoNombre = array.filter(e => elemento === e.nombre)
-      console.log(arrayFiltradoNombre);
+
       let StateZero = {
         nombre: "",
         tipo: "",
@@ -57,22 +68,4 @@ function reduceStats (array){
     
     return vacio
   }
-  console.log(reduceStats(productoSeleccionado))
 
-
-  /* function comparador (array){
-    let objeto = {};
-    let a ;
-    a = array.filter(function(e) {
-    let existe = !objeto[e._id];
-    objeto[e._id] = true;
-    return existe;
-    });
-    console.log(a)
-    let f
-    f= a.map(b=>({nombre:b.nombre, stock: b.stock-1 ,precio: b.precio,tipo:b.tipo,cantidad :b.cantidad +1,}))
-    return f
-  }
- console.log(comparador(productoSeleccionado))
-
- imprimirTabla(comparador(productoSeleccionado),contenedorTabla) */
