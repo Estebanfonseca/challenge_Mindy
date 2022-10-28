@@ -3,8 +3,15 @@ let checkboxes = document.getElementById("filtro")
 let container = document.getElementById("container")
 let inputsNumber = document.getElementById("botonRango")
 let carritoProductos = []
-let productosStorage = localStorage.getItem("Medicamento")
-productosStorage = JSON.parse(productosStorage)
+let medicamentoStorage = localStorage.getItem("Medicamento") || []
+let medicamentoStorageArry = JSON.parse(medicamentoStorage) 
+carritoProductos = carritoProductos.concat(medicamentoStorageArry)
+let juguetesStorage = localStorage.getItem("Juguetes") || []
+let juguetesStorageArry = JSON.parse(juguetesStorage) 
+carritoProductos = carritoProductos.concat(juguetesStorageArry)
+
+
+
 
 let reinicio = document.getElementById("reiniciar")
 async function mindyMedicamentos() {
@@ -21,8 +28,7 @@ async function mindyMedicamentos() {
         inputText.addEventListener("keyup", () => {
              filtroText(range(medicamentos), inputText.value)
         })
-        reinicio.addEventListener("click", () => {
-            cardCreator(medicamentos) })
+        
     }
     catch (error) {
         console.log(error);
@@ -47,8 +53,9 @@ function eventoComprar(contenedorClass,array) {
                 
               
                 let productoFiltrado = []
-                productoFiltrado  = (array.filter(e => {return e._id === botonTarget.id}))
-                
+                productoFiltrado  = array.filter(e => { 
+                    return e._id === botonTarget.id})
+                console.log(productoFiltrado);
                 carritoProductos = carritoProductos.concat(productoFiltrado)
                 
                 localStorage.setItem("Medicamento",JSON.stringify(carritoProductos))
@@ -56,6 +63,20 @@ function eventoComprar(contenedorClass,array) {
             })
         })
 }
+function nroCarrito(array){
+    if (array.length!==0){
+        let length = array.length
+        let nroCarrito= document.getElementById("nro-carrito-js")
+        nroCarrito.innerHTML=
+     `  ${length}
+     ` 
+         
+    }
+    
+}
+
+
+nroCarrito(carritoProductos)
 // function imprimir cards de productos
 function cardCreator(array) {
     document.getElementById("container").innerHTML = ""
