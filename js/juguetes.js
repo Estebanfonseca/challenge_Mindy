@@ -15,7 +15,9 @@ async function mindyJuguetes() {
         let products = await datos.json()
         let productos = products.response
         let juguetes = tipo(productos, "Juguete").sort((a,b) =>{ return a.stock -b.stock})
+        
         cardCreator(juguetes)
+        menorStock(juguetes)
         inputsNumber.addEventListener("click", () => { range(juguetes) })
         inputText.addEventListener("keyup", () => {
             filtroText(range(juguetes), inputText.value)
@@ -54,7 +56,29 @@ function cardCreator(array) {
     document.getElementById("container").innerHTML = ""
     if (array.length > 0) {
         array.forEach(card => {
-            document.getElementById("container").innerHTML += `
+            if(card.stock<=3){
+                document.getElementById("container").innerHTML +=` 
+                <div class="card ultimos">
+                <div class="card-img">
+                <img src="${card.imagen}" alt="${card.nombre}" />
+                </div>
+                <div class="card-info">
+                  <p class="text-title">${card.nombre}</p>
+                  <p class="text-body">${card.descripcion}</p>
+                </div>
+                <div class="card-footer">
+                <span class="text-title">$${card.precio}</span>
+                <span class="text-title">Stock:  ${card.stock}</span>
+                <div class="card-button " >
+                <button class="compra btn" id=${card._id}>
+                  comprar
+                </button>
+                </div>
+                </div>
+                `
+
+            }else{
+            document.getElementById("container").innerHTML +=` 
             <div class="card">
             <div class="card-img">
             <img src="${card.imagen}" alt="${card.nombre}" />
@@ -72,12 +96,13 @@ function cardCreator(array) {
             </button>
             </div>
             </div>
-        `})
+            `}})
     } else {
         document.getElementById("container").innerHTML =`
         <h2>No se puede encontrar productos con este nombre</h2>`
     }
     eventoComprar(".compra",array)
+   
 }
 function range(array) {
     document.getElementById("container").innerHTML = ""
@@ -92,7 +117,21 @@ function range(array) {
     }
     return array
 }
-
+//cambiar color
+function cambiarColor(id){
+    let button= document.getElementById(id)
+    console.log(id)
+     if (productosStorage.includes(id)){
+          button.classList.toggle("bg-success")
+          button.classList.toggle("bg-light")
+         
+     } else{
+         button.classList.toggle("bg-success")
+          button.classList.toggle("bg-light")
+          
+     }
+  }
+  
 
 function filtroText(array, texto) {
     document.getElementById("container").innerHTML = ""
@@ -114,8 +153,15 @@ function prodNotFound() {
   </div>
     `
 }
-///// hasta acá va Laila
-//Nico tarea: cambiar el color de productos con 3 unidades para venderlos más rápido (cambiar background de la card)
-// ordenar las cards para que estén primero
 
+//functon lessstock
 
+function menorStock(array){
+    
+    let arrayFiltrado= array.filter(producto=> producto.stock <= 3)
+    arrayFiltrado.forEach(card=> {
+        card.className="bg-danger"
+        console.log(card);
+    })
+    
+}
