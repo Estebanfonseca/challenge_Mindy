@@ -32,7 +32,6 @@ contenedorId("enviar-js").addEventListener("click", () => {
     comentario: contenedorId("Comentarios").value,
   };
   usuario = usuario.concat(dato);
-  alert("tus datos fueron enviados");
   localStorage.setItem("usuario", JSON.stringify(usuario));
 });
 
