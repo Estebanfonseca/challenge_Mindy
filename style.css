@@ -1,0 +1,498 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+*{
+  font-family: 'Acme', sans-serif;
+  color: rgb(86, 83, 83);
+}
+
+header{
+    width: 100%;
+    height: 75vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #F7B71D;
+}
+main{
+    width: 100%;
+    min-height: 35vh;
+    background-color: #FDEF96;
+    padding: 1rem;
+    
+}
+h1{
+    text-align: center;
+    font-size: 2rem;
+    color: #F7B71D;
+    text-shadow: 2px 2px black;
+}
+h2{
+    color: #F7B71D;
+    text-shadow: 2px 2px black;
+
+}
+.navbar{
+
+    min-height: 10%;
+    background-color: #FDEF96;
+    font-size: 1.3rem;
+    z-index: 10;
+    border-bottom:2px solid rgba(0, 0, 0, 0.505);
+}
+.badge{
+  position:absolute;
+  bottom: 5;
+  
+}
+.gif{
+  width: 25%;
+
+}
+.gif img{
+  width: 28%;
+  
+
+}
+#main-index section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+#main-index p{
+    background-color: aliceblue;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+/*CARDS*/
+/* From uiverse.io by @alexruix */
+.card {
+  width: 320px;
+  height: 254px;
+  padding: .8em;
+  background: #f5f5f5;
+  position: relative;
+  overflow: visible;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 1.2rem;
+  color: rgb(86, 83, 83);
+ }
+ .ultimos{
+  box-shadow: rgba(131, 43, 14, 0.678) 0px 13px 20px -5px, rgba(153, 55, 23, 0.3) 0px 8px 16px -8px;
+  background-image: linear-gradient(-60deg, #ff585844 0%, #f096193c 100%);
+ }
+
+ 
+ .card-img {
+  background-color: #f7b78c;
+  height: 40%;
+  width: 190px;
+  object-fit: cover;
+  border-radius: .5rem;
+  transition: .3s ease;
+ }
+ .card-img img {
+  object-fit: cover;
+  width: 100%;
+  border-radius: .5rem;
+ }
+
+ .card-info {
+  padding-top: 10%;
+  
+ }
+ 
+ svg {
+  width: 28px;
+  height: 28px;
+  margin-bottom: 15px ;
+ }
+ 
+ .card-footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+  border-top: 1px solid #ddd;
+  align-self: flex-end;
+ }
+ 
+ /*Text*/
+ .text-title {
+  font-weight: 500;
+  font-size: 1.2em;
+  line-height: 1.5;
+   font-size: .9em;
+   color:#AFA939;
+   
+ }
+ 
+ .text-body {
+  font-size: .9em;
+  padding-bottom: 10px;
+  color: rgb(86, 83, 83);
+ }
+ 
+ /*Button*/
+ .card-button {
+  border: 1px solid #252525;
+  display: flex;
+  padding: .3em;
+  cursor: pointer;
+  border-radius: 50px;
+  transition: .3s ease-in-out;
+  font-size: .9em;
+ }
+ 
+ /*Hover*/
+ .card-img:hover {
+  transform: translateY(-25%);
+  box-shadow: rgba(226, 161, 63, 0.678) 0px 13px 20px -5px, rgba(214, 155, 65, 0.3) 0px 8px 16px -8px;
+  
+ }
+ 
+ .card-button:hover {
+  border: 1px solid #F7B71D;
+  border-bottom: 1px solid #F7B71D;
+  background-color: #f7b61db8;
+ }
+ 
+.barra-buscador{
+  width: 100%;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  font-size: 1.2rem;
+  background-color: #f7b61d55;
+  
+}
+
+.barra-buscador fieldset{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  
+  
+}
+footer{
+    width: 100%;
+    min-height: 25vh;
+    background-color: #AFA939;
+    display: flex;
+    flex-wrap: wrap;
+    padding-top:1rem;
+    justify-content: space-between;
+}
+
+footer div{
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+
+}
+footer div p{
+  width: 100%;
+  background-color:#AFA939;
+  border-radius: .8rem;
+}
+
+footer p{
+  background-color: black;
+  color: #ffff;
+  text-align: center;
+}
+footer a{
+  margin: 1rem;
+
+}
+footer article{
+  width: 20rem;
+}
+
+footer img{
+  width: 100%;
+  display: block;
+  position: relative;
+  filter: brightness(.99) saturate(0) opacity(.4);
+  transform: scale3d(.9,.9,1);
+  transition: transform .4s,filter .3s ease;
+  color:grey;
+  border-radius: 1rem;
+}
+footer img:hover{
+  filter:none;
+  transition:all 1s;
+  transform: translateY(5px);
+  cursor: pointer;
+}
+.aside1{
+    width: 20%;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    position: sticky;
+    top:12%;
+}
+.aside1 img{
+  width: 100%;
+  border-radius: 1rem 1rem 0 0;
+
+}
+.aside{
+  background-color: #fff;
+  border-radius: 0 0 1rem 1rem ;
+  padding: 1rem;
+}
+section{
+    width: 80%;
+    background-image: url("./img/fondo.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 60% 10%;
+}
+/*INDEX ONG*/
+article img{
+  width: 100%;
+  height: 270px;
+  object-position: 20% 30%;
+  object-fit: cover;
+}
+
+#carouselExampleCaptions,
+.carousel-inner {
+  height:65vh;
+  width: 50%;
+  margin-top: 4.5rem;
+  display: flex;
+  justify-content: start;
+  object-position: 50% 40%;
+}
+
+.carousel-item img{
+  width: 80%;
+  height: auto;
+  object-fit: cover;
+  object-position: 50% 50%;
+  margin: 1rem 0 0 12rem;
+}
+iframe{
+  width: 85%;
+
+}
+
+.restartButton{
+  border: 1px solid red;
+  color: red;
+  border-radius: .5rem;
+  background-color: rgba(255, 0, 0, 0.227);
+  margin-left: 1rem;
+}
+/* Height for devices larger than 576px */
+
+
+
+article div{
+  display: flex;
+  height: 60%;
+  align-items: center;
+}
+article:nth-child(1) svg{
+  border:2px solid black;
+  padding: .5rem;
+  height: 3rem;
+  width: 3rem;
+  border-radius: 1rem;
+ 
+}
+article:nth-child(2) a {
+  color: #fff;
+}
+h4{
+  text-align: center;
+}
+.futerNombres{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center!important;
+  margin: 0!important;
+}
+
+@media screen and (max-width:1326px){
+    .ahoraLoHagoYo{
+      flex-direction: row!important;
+      flex-wrap: wrap!important;
+    }
+    .carousel-item img{
+      margin-top:-20px!important;
+      height: 101.5%!important;
+
+      margin-left: 4rem!important;
+    }
+
+}
+@media screen and (max-width:1290px){
+  .carousel-item img{
+    margin:0 0 0 9rem;
+  }
+}
+
+@media screen and (max-width:1200px){
+  section{
+    width: 70%;
+  }
+  .aside1{
+    width: 30%;
+  }
+}
+
+@media screen and (max-width:1050px){
+  .carousel-item img{
+    margin:0 0 0 6rem;
+  }
+  footer a{
+    margin: 0;
+  }
+  section div{
+    flex-direction: column;
+    height: auto;
+    gap: 2rem;
+  }
+  section div .card.border.border-light{
+    width: 25rem ;
+  }
+  
+}
+
+@media screen and (max-width:890px){
+  .carousel-item img{
+    width: 80%;
+    margin: 0;
+  }
+}
+@media screen and (max-width:767px){
+  .gifdiv{
+    display:flex;
+    justify-content: center;
+    height: 50px;
+  }
+  .gifdiv img{
+    width:50px;
+  }
+  .navbarResponsive{
+    width: 100%!important;
+    display: flex!important;
+    justify-content: space-between!important;
+    
+  }
+  .navbarResponsive div:nth-of-type(1) {
+    order: 1;
+  }
+ 
+  .navbarResponsive div:nth-of-type(2) {
+    order: 3;
+  }
+ 
+  .navbarResponsive div:nth-of-type(3) {
+    order: 2;
+  }
+ 
+  .chachara{
+    width: 100px !important;
+    margin: 0!important;
+  }
+}
+@media screen and (max-width:750px){
+  footer div{
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  footer div:nth-child(1) article{
+    width: 100%;
+    
+  }
+  footer article div{
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+  iframe{
+    margin-left: 3rem;
+  }
+
+}
+
+@media screen and (max-width:700px){
+  #main-index{
+    display: flex;
+    flex-direction:  column-reverse;
+    align-items: center;
+  }
+  .aside1{
+    position: unset;
+    width: 90%;
+  }
+  section{
+    width: 90%;
+  }
+
+}
+
+
+@media screen and (max-width:600px){
+  header{
+    height: 62vh;
+  }
+  .navbarResponsive{
+    flex-wrap: wrap!important;
+  }
+  .chachara{
+    display: inline-block !important;
+  }
+  .carousel-item img{
+    height: 81.2%!important;
+  }
+}
+@media screen and (max-width:540px){
+  section div .card.border.border-light{
+    width: 20rem ;
+  }
+  
+}
+
+@media screen and (max-width:460px){
+  header{
+    height: 50vh;
+  }
+  section div .card.border.border-light{
+    width: 15rem ;
+    height: 15rem;
+  }
+  
+  section div .card.border.border-light img{
+    object-fit: contain;
+  }
+  section{
+    width: 100%;
+  }
+  .aside1{
+    width: 100%;
+  }
+  iframe{
+    margin-left: 1.5rem;
+  }
+  .carousel-item img{
+    height: 63%!important;
+    margin-left: 2.5rem!important;
+  }
+
+}
+
