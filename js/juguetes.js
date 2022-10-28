@@ -151,7 +151,6 @@ function cambiarColor(id){
 
 function filtroText(array, texto) {
     document.getElementById("container").innerHTML = ""
-    console.log(inputText.value)
     let arrayFiltrado = array.filter(producto => producto.nombre.toLowerCase().includes(texto.toLowerCase() || producto.descripcion.toLowerCase().includes(texto.toLowerCase()) || producto.precio == texto))
     cardCreator(arrayFiltrado)
     if(inputText.value.length== 0){

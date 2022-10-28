@@ -40,52 +40,22 @@ function imprimirTabla (array,contenedor){
           <td class="text-light">${e.stock}</td>
           <td class="text-light">$ ${e.precio}</td>
           <td class="text-light">${e.tipo}</td>
-          <td class="text-light">${e.cantidad} <button class="menos">-</button> <button class="mas">+</button> </td>
+          <td class="text-light">${e.cantidad} <button class="sacar" id="${e.nombre}" >X</button> </td>
         </tr>
         `
         
         
     }
     )
-    let botonMas = document.querySelectorAll(".mas")
-    let botonMenos = document.querySelectorAll(".menos")
-    console.log(botonMenos);
-    botonMas.forEach(e =>{
-      
-      e.addEventListener("click",()=>{
-        console.log(e);
-        let precioUnida = e.precio/ e.cantidad
-        
-        let productoConcatenar = {
-          nombre: e.nombre ,
-          stock: e.stock ,
-          precio:e.precio + precioUnida,
-          tipo: e.tipo,
-          cantidad: e.cantidad + 1
-        }
-        datosReduce = datosReduce.concat(productoConcatenar)
-        console.log(datosReduce);
-        
-        imprimirTabla(datosReduce,contenedor)
-        
-        
-        })
-    })
-    botonMenos.forEach(e => {
+    let sacarProducto = document.querySelectorAll(".sacar")
+    sacarProducto.forEach(e =>{
       e.addEventListener("click", () => {
-        let precioUnida = e.precio/ e.cantidad
-      console.log("hola");
-        let productoConcatenar = {
-          nombre: e.nombre ,
-          stock: e.stock ,
-          precio: e.precio - precioUnida,
-          tipo: e.tipo,
-          cantidad: e.cantidad - 1
-        }
-        datosReduce = datosReduce.concat(productoConcatenar)
+        let idBoton = e.id
+
+        datosReduce = array.filter( e => idBoton !== e.nombre )
         
         imprimirTabla(datosReduce,contenedor)
-    })
+      })
     })
 }
   imprimirTabla(datosReduce,contenedorTabla) 

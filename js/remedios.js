@@ -59,7 +59,7 @@ function eventoComprar(contenedorClass,array) {
                 let productoFiltrado = []
                 productoFiltrado  = array.filter(e => { 
                     return e._id === botonTarget.id})
-                console.log(productoFiltrado);
+                
                 carritoProductos = carritoProductos.concat(productoFiltrado)
                 
                 localStorage.setItem("Medicamento",JSON.stringify(carritoProductos))
@@ -147,11 +147,11 @@ function cambiarColor(id){
 function range(array) {
     document.getElementById("container").innerHTML = ""
     let min = document.getElementById("minimo")
-    console.log(min)
+  
     let max = document.getElementById("maximo")
-    console.log(max.value)
+  
     let precioFiltrado = array.filter(e => (min.value <= e.precio && e.precio <= max.value))
-    console.log(precioFiltrado)
+  
     cardCreator(precioFiltrado)
     if(precioFiltrado.length== 0){
         document.getElementById("container").innerHTML = ""
@@ -166,7 +166,7 @@ function range(array) {
 
 function filtroText(array, texto) {
     document.getElementById("container").innerHTML = ""
-    console.log(inputText.value)
+   
     let arrayFiltrado = array.filter(producto => producto.nombre.toLowerCase().includes(texto.toLowerCase() || producto.descripcion.toLowerCase().includes(texto.toLowerCase()) || producto.precio == texto))
     cardCreator(arrayFiltrado)
     if(inputText.value.length== 0){
@@ -192,7 +192,7 @@ function menorStock(array){
     let arrayFiltrado= array.filter(producto=> producto.stock <= 3)
     arrayFiltrado.forEach(card=> {
         card.className="bg-danger"
-        console.log(card);
+       
     })
     
 }
