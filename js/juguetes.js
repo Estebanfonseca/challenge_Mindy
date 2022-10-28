@@ -53,7 +53,7 @@ function eventoComprar(contenedorClass,array) {
         botonCarrito.forEach( e => {
             e.addEventListener("click", (e) =>{
                /*  botonCarrito.classList.add("bg-dark") */
-                console.log(array);
+               
                 const botonTarget = e.target
                 let productoFiltrado = []
                 productoFiltrado  = array.filter(e => {return e._id === botonTarget.id})
@@ -139,7 +139,7 @@ function range(array) {
 //cambiar color
 function cambiarColor(id){
     let button= document.getElementById(id)
-    console.log(id)
+   
      if (productosStorage.includes(id)){
           button.classList.toggle("bg-success")
           button.classList.toggle("bg-light")
@@ -154,7 +154,6 @@ function cambiarColor(id){
 
 function filtroText(array, texto) {
     document.getElementById("container").innerHTML = ""
-    console.log(inputText.value)
     let arrayFiltrado = array.filter(producto => producto.nombre.toLowerCase().includes(texto.toLowerCase() || producto.descripcion.toLowerCase().includes(texto.toLowerCase()) || producto.precio == texto))
     cardCreator(arrayFiltrado)
     if(inputText.value.length== 0){
