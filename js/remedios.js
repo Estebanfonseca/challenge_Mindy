@@ -61,8 +61,29 @@ function cardCreator(array) {
     document.getElementById("container").innerHTML = ""
     if (array.length > 0) {
         array.forEach(card => {
-            document.getElementById("container").innerHTML += `
-            
+            if(card.stock<=3){
+                document.getElementById("container").innerHTML +=` 
+                <div class="card ultimos">
+                <div class="card-img">
+                <img src="${card.imagen}" alt="${card.nombre}" />
+                </div>
+                <div class="card-info">
+                  <p class="text-title">${card.nombre}</p>
+                  <p class="text-body">${card.descripcion}</p>
+                </div>
+                <div class="card-footer">
+                <span class="text-title">$${card.precio}</span>
+                <span class="text-title">Stock:  ${card.stock}</span>
+                <div class="card-button " >
+                <button class="compra btn" id=${card._id}>
+                  comprar
+                </button>
+                </div>
+                </div>
+                `
+
+            }else{
+            document.getElementById("container").innerHTML +=` 
             <div class="card">
             <div class="card-img">
             <img src="${card.imagen}" alt="${card.nombre}" />
@@ -73,25 +94,25 @@ function cardCreator(array) {
             </div>
             <div class="card-footer">
             <span class="text-title">$${card.precio}</span>
-            <span class="text-title">Stock: ${card.stock}</span>
-            <button class="btn  rounded border-secondary addToCart bg-light" id="btn-${card.nombre}" onclick="cambiarColor('btn-${card.nombre}')" value="Comprar">Carrito
+            <span class="text-title">Stock:  ${card.stock}</span>
+            <div class="card-button " >
+            <button class="compra btn" id=${card._id}>
+              comprar
             </button>
             </div>
             </div>
-            </div>
-           
-
-`})
+            `}})
     } else {
         document.getElementById("container").innerHTML =`
         <h2>No se puede encontrar productos con este nombre</h2>`
     }
-    eventoComprar(".addToCart",array)
+    eventoComprar(".compra",array)
+   
 }
 //cambiar color
 function cambiarColor(id){
   let button= document.getElementById(id)
-   console.log(button)
+  console.log(id)
    if (productosStorage.includes(id)){
         button.classList.toggle("bg-success")
         button.classList.toggle("bg-light")
@@ -146,4 +167,13 @@ function prodNotFound() {
   </div>
     `
 
+}
+function menorStock(array){
+    
+    let arrayFiltrado= array.filter(producto=> producto.stock <= 3)
+    arrayFiltrado.forEach(card=> {
+        card.className="bg-danger"
+        console.log(card);
+    })
+    
 }
