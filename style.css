@@ -49,7 +49,7 @@ h2{
 
 }
 .gif img{
-  width: 20%;
+  width: 28%;
   
 
 }
@@ -307,8 +307,27 @@ article:nth-child(2) a {
 h4{
   text-align: center;
 }
+.futerNombres{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center!important;
+  margin: 0!important;
+}
 
+@media screen and (max-width:1326px){
+    .ahoraLoHagoYo{
+      flex-direction: row!important;
+      flex-wrap: wrap!important;
+    }
+    .carousel-item img{
+      margin-top:-20px!important;
+      height: 101.5%!important;
 
+      margin-left: 4rem!important;
+    }
+
+}
 @media screen and (max-width:1290px){
   .carousel-item img{
     margin:0 0 0 9rem;
@@ -344,8 +363,40 @@ h4{
 
 @media screen and (max-width:890px){
   .carousel-item img{
-    width: 100%;
+    width: 80%;
     margin: 0;
+  }
+}
+@media screen and (max-width:767px){
+  .gifdiv{
+    display:flex;
+    justify-content: center;
+    height: 50px;
+  }
+  .gifdiv img{
+    width:50px;
+  }
+  .navbarResponsive{
+    width: 100%!important;
+    display: flex!important;
+    justify-content: space-between!important;
+    
+  }
+  .navbarResponsive div:nth-of-type(1) {
+    order: 1;
+  }
+ 
+  .navbarResponsive div:nth-of-type(2) {
+    order: 3;
+  }
+ 
+  .navbarResponsive div:nth-of-type(3) {
+    order: 2;
+  }
+ 
+  .chachara{
+    width: 100px !important;
+    margin: 0!important;
   }
 }
 @media screen and (max-width:750px){
@@ -381,11 +432,22 @@ h4{
   section{
     width: 90%;
   }
+
 }
+
 
 @media screen and (max-width:600px){
   header{
     height: 62vh;
+  }
+  .navbarResponsive{
+    flex-wrap: wrap!important;
+  }
+  .chachara{
+    display: inline-block !important;
+  }
+  .carousel-item img{
+    height: 81.2%!important;
   }
 }
 @media screen and (max-width:540px){
@@ -416,6 +478,11 @@ h4{
   iframe{
     margin-left: 1.5rem;
   }
+  .carousel-item img{
+    height: 63%!important;
+    margin-left: 2.5rem!important;
+  }
+
 }
 
 .restartButton{
