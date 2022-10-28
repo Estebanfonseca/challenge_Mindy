@@ -6,24 +6,61 @@ medicamentoSeleccionado = JSON.parse(medicamentoSeleccionado) ||[]
 let productoSeleccionado = []
 productoSeleccionado = concatProductos(medicamentoSeleccionado,productoSeleccionado)
 productoSeleccionado = concatProductos(juguetesSeleccionado,productoSeleccionado)
+let datosReduce = [...reduceStats(productoSeleccionado)]
+
+
+
 let contenedorTabla = document.getElementById("tbody")
 let contenedorTablaF = document.getElementById("tfoot")
 function imprimirTabla (array,contenedor){
      array.forEach(e=>{
+        contenedor.innerHTML = ""
         contenedor.innerHTML +=`
-         <tr>
+        <tr>
     <td>           </td>
-    <td class="text-light">${e.nombre}</td>
-    <td class="text-light">${e.stock}</td>
-    <td class="text-light">.-$ ${e.precio}</td>
-    <td class="text-light">${e.tipo}</td>
-    <td class="text-light">${e.cantidad}</td>
-  </tr>
+          <td class="text-light">${e.nombre}</td>
+          <td class="text-light">${e.stock}</td>
+          <td class="text-light">.-$ ${e.precio}</td>
+          <td class="text-light">${e.tipo}</td>
+          <td class="text-light">${e.cantidad} <button id="menos">-</button> <button id="mas">+</button> </td>
+        </tr>
         `
+        let botonMas = document.getElementById("mas")
+        let botonMenos = document.getElementById("menos")
+        botonMas.addEventListener("click",()=>{
+        let precioUnida = e.precio/ e.cantidad
+        
+        let productoConcatenar = {
+          nombre: e.nombre ,
+          stock: e.stock ,
+          precio:e.precio + precioUnida,
+          tipo: e.tipo,
+          cantidad: e.cantidad + 1
+        }
+        datosReduce = datosReduce.concat(productoConcatenar)
+        
+        imprimirTabla(datosReduce,contenedor)
+        
+        
+        })
+        botonMenos.addEventListener("click", () => {
+          let precioUnida = e.precio/ e.cantidad
+        
+          let productoConcatenar = {
+            nombre: e.nombre ,
+            stock: e.stock ,
+            precio: e.precio - precioUnida,
+            tipo: e.tipo,
+            cantidad: e.cantidad - 1
+          }
+          datosReduce = datosReduce.concat(productoConcatenar)
+          
+          imprimirTabla(datosReduce,contenedor)
+      })
     })
 
 }
-  imprimirTabla(reduceStats(productoSeleccionado),contenedorTabla) 
+  imprimirTabla(datosReduce,contenedorTabla) 
 function concatProductos(array,arrayConcatenar) {
   arrayConcatenar
   array.forEach(e => {
@@ -92,7 +129,6 @@ deleteAllProducts.addEventListener('click',() =>{
         precio: 0,
         cantidad: 0 ,
         }
-        console.log(array.cantidad)
     let stats = array.reduce((element1,element2) => { 
       return {
             precio: element1.precio + element2.precio,
@@ -103,7 +139,7 @@ deleteAllProducts.addEventListener('click',() =>{
     
     return lleno
   }
-  console.log(total(reduceStats(productoSeleccionado)))
+
 
   function imprimirTablaF (array,contenedor){
     array.forEach(e=>{
@@ -117,6 +153,8 @@ deleteAllProducts.addEventListener('click',() =>{
    <td class="text-light">${e.cantidad}</td>
  </tr>
        `
+       
+
    })
   }
 imprimirTablaF(total(reduceStats(productoSeleccionado)),contenedorTablaF)

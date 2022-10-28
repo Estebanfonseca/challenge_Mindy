@@ -32,13 +32,13 @@ function eventoComprar(contenedorClass,array) {
         botonCarrito.forEach( e => {
             e.addEventListener("click", (e) =>{
                /*  botonCarrito.classList.add("bg-dark") */
-                console.log(e);
+                console.log(array);
                 const botonTarget = e.target
                 let productoFiltrado = []
                 productoFiltrado  = array.filter(e => {return e._id === botonTarget.id})
                 carritoProductos = carritoProductos.concat(productoFiltrado)
                 localStorage.setItem("Juguetes",JSON.stringify(carritoProductos))
-                botonColor()
+                
                 return carritoProductos
             })
         })
@@ -48,8 +48,6 @@ mindyJuguetes()
 function tipo(array, propiedad) {
     let filtrado = array.filter(array => array.tipo == [propiedad])
     return (filtrado)
-}
-function botonColor(){
 }
 
 function cardCreator(array) {

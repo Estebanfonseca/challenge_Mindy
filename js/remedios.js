@@ -21,8 +21,7 @@ async function mindyMedicamentos() {
         inputText.addEventListener("keyup", () => {
              filtroText(range(medicamentos), inputText.value)
         })
-        reinicio.addEventListener("click", () => {
-            cardCreator(medicamentos) })
+        
     }
     catch (error) {
         console.log(error);
@@ -47,8 +46,9 @@ function eventoComprar(contenedorClass,array) {
                 
               
                 let productoFiltrado = []
-                productoFiltrado  = (array.filter(e => {return e._id === botonTarget.id}))
-                
+                productoFiltrado  = array.filter(e => { 
+                    return e._id === botonTarget.id})
+                console.log(productoFiltrado);
                 carritoProductos = carritoProductos.concat(productoFiltrado)
                 
                 localStorage.setItem("Medicamento",JSON.stringify(carritoProductos))
