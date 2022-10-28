@@ -300,5 +300,11 @@ article:nth-child(2) a {
 h4{
   text-align: center;
 }
-
+.restartButton{
+  border: 1px solid red;
+  color: red;
+  border-radius: .5rem;
+  background-color: rgba(255, 0, 0, 0.227);
+  margin-left: 1rem;
+}
 
