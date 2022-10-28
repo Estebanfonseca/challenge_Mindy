@@ -3,12 +3,16 @@ let checkboxes = document.getElementById("filtro")
 let container = document.getElementById("container")
 let inputsNumber = document.getElementById("botonRango")
 let carritoProductos = []
-let medicamentoStorage = localStorage.getItem("Medicamento") || []
-let medicamentoStorageArry = JSON.parse(medicamentoStorage) 
-carritoProductos = carritoProductos.concat(medicamentoStorageArry)
-let juguetesStorage = localStorage.getItem("Juguetes") || []
-let juguetesStorageArry = JSON.parse(juguetesStorage) 
-carritoProductos = carritoProductos.concat(juguetesStorageArry)
+let productosStorage = localStorage.getItem("Juguetes")
+productosStorage = JSON.parse(productosStorage) || []
+let juguetesSeleccionado = localStorage.getItem("Juguetes")
+juguetesSeleccionado = JSON.parse(juguetesSeleccionado) || []
+let medicamentoSeleccionado = localStorage.getItem("Medicamento")
+medicamentoSeleccionado = JSON.parse(medicamentoSeleccionado) ||[]
+let productoSeleccionado = []
+productoSeleccionado = productoSeleccionado.concat(medicamentoSeleccionado)
+productoSeleccionado = productoSeleccionado.concat(juguetesSeleccionado)
+
 
 
 
@@ -76,7 +80,7 @@ function nroCarrito(array){
 }
 
 
-nroCarrito(carritoProductos)
+nroCarrito(productoSeleccionado)
 // function imprimir cards de productos
 function cardCreator(array) {
     document.getElementById("container").innerHTML = ""

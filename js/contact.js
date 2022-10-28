@@ -2,9 +2,9 @@ let usuario = [];
 //carrito numeros de productos
 
 let productosStorage = localStorage.getItem("Juguetes")
-productosStorage = JSON.parse(productosStorage)
+productosStorage = JSON.parse(productosStorage) || []
 let productosMedicamento = localStorage.getItem("Medicamento")
-productosMedicamento = JSON.parse(productosMedicamento)
+productosMedicamento = JSON.parse(productosMedicamento) ||[]
 let cantidad = [...productosStorage].concat([...productosMedicamento])
 
 // ----------------------------Funciones---------------------------------------------------
