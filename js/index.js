@@ -3,8 +3,7 @@ let productosStorage = localStorage.getItem("Juguetes")
 productosStorage = JSON.parse(productosStorage)
 console.log(productosStorage);
 let productosMedicamento = localStorage.getItem("Medicamento")
-productosMedicamento = JSON.parse(productosMedicamento)
-console.log(productosMedicamento);
+productosMedicamento= JSON.parse(productosMedicamento)
 let cantidad = [...productosStorage].concat([...productosMedicamento])
 console.log(cantidad);
 
