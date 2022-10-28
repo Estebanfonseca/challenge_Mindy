@@ -53,6 +53,7 @@ function eventoComprar(contenedorClass,array) {
         botonCarrito.forEach( e => {
             e.addEventListener("click", (e) =>{
                /*  botonCarrito.classList.add("bg-dark") */
+              cambiarColor(e.target);
                 console.log(array);
                 const botonTarget = e.target
                 let productoFiltrado = []
@@ -138,17 +139,13 @@ function range(array) {
 }
 //cambiar color
 function cambiarColor(id){
-    let button= document.getElementById(id)
-    console.log(id)
-     if (productosStorage.includes(id)){
-          button.classList.toggle("bg-success")
-          button.classList.toggle("bg-light")
-         
-     } else{
-         button.classList.toggle("bg-success")
-          button.classList.toggle("bg-light")
-          
-     }
+    console.log(id.id)
+    productosStorage.filter(function(e){
+    e.id== id
+    id.className="bg-success border rounded"
+    id.innerHTML="Agregado"
+    })
+   
   }
   
 
