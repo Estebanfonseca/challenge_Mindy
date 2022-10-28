@@ -52,7 +52,7 @@ function eventoComprar(contenedorClass,array) {
     let botonCarrito = document.querySelectorAll(contenedorClass)
         botonCarrito.forEach( e => {
             e.addEventListener("click", (e) =>{
-                
+                cambiarColor(e.target);
                 const botonTarget = e.target
                 
               
@@ -136,20 +136,14 @@ function cardCreator(array) {
 }
 //cambiar color
 function cambiarColor(id){
-  let button= document.getElementById(id)
+    productosStorage.filter(function(e){
+    e.id== id
+    id.className="bg-success border rounded"
+    id.innerHTML="Agregado"
+    })
+   
+  }
   
-   if (productosStorage.includes(id)){
-        button.classList.toggle("bg-success")
-        button.classList.toggle("bg-light")
-       
-   } else{
-       button.classList.toggle("bg-success")
-        button.classList.toggle("bg-light")
-        
-   }
-}
-
-
 function range(array) {
     document.getElementById("container").innerHTML = ""
     let min = document.getElementById("minimo")
