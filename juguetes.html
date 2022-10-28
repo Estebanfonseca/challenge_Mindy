@@ -12,17 +12,16 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-md w-100 rounded-bottom  position-fixed top-0 start-0">
+        <nav class="navbar navbar-expand-md w-100 rounded-bottom navbarResponsive position-fixed top-0 start-0">
           <div>
             <a class="navbar-brand pe-5" href="#">
               <img src="./img/logo1.png" alt="Logo" width="60" height="60" class="d-inline-block align-text-top">
             </a>
            </div>
-            <div class="container ">
-              <a class="navbar-brand" href="#" title="inicio"></a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
+            <div class="container chachara ">
+              <!-- <a class="navbar-brand" href="#" title="inicio"></a> -->
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span>
+</button>
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto d-flex justify-content-center mb-2 mb-lg-0">
                   <li class="nav-item">
@@ -48,7 +47,7 @@
                 </ul>
               </div>
             </div>
-            <div class="gif">
+            <div class="gif gifdiv">
               <img src="./img/juguetes.gif" autoplay alt="">
             </div>
         </nav>
@@ -88,21 +87,21 @@
     </header>
     <main class=" d-flex justify-content-evenly  flex-column" >
       <h1 >Juguetes</h1>
-      <div class="barra-buscador d-flex flex-wrap border rounded align-items-baseline">
+     
      <div id="filtro" class="d-flex justify-content-evenly ">
       
-      <form class="form-check-inline d-flex gap-2 pt-3 pe-0 pb-2 f-wrap align-items-center justify-content-evenly " id="inputs" >
+      <form class="ahoraLoHagoYo form d-flex gap-2 pt-3 pe-0 pb-2 f-wrap align-items-center justify-content-evenly  " id="inputs" >
           
-          <fieldset> Buscar por precios: 
+ Buscar por precios: 
          <label class="w-30 pe-4 ps-4" >Valor minimo: <input class="border border-white rounded w-30" type="number" placeholder="Ej: 200" id="minimo" min="200" ></input></label> 
          <label class="w-30 pe-4 ps-4" >Valor maximo: <input class="border border-white rounded w-30" type="number" placeholder="Ej: 1000" id="maximo" min="300"></input></label>
          <input type="button" class="btn btn-outline-success  p-1" value="Aplicar" id="botonRango"> 
-        </fieldset>
-    </form>
-  </div>   
+        
   <input id="text-search-js" class="border border-white rounded " style="height: 30px;" type="search" placeholder="Buscar" aria-label="Search" >
 <input type="button" class="restartButton" value="reiniciar" id="reiniciar"></input>
-</div>
+
+    </form>
+ </div>
   <div class="container mt-5 rounded-4 p-4">
   <div class="d-flex gap-5 justify-content-evenly flex-wrap" id="container" > 
   </div>
@@ -159,7 +158,7 @@
         </article> 
         </div>
         <img src="./img/payment-methods-footer.jpg" alt="">
-        <p>hecho por: German pungitore-Ramiro rojas-Laila jalil-Nicolas Lopez-Esteban Fonseca 2022</p>
+        <p class="futerNombres"> German&nbsp; Pungitore &nbsp;&nbsp;&nbsp;&nbsp;  Ramiro&nbsp; Rojas  &nbsp;&nbsp;&nbsp;&nbsp; Laila&nbsp; Jalil &nbsp;&nbsp;&nbsp;&nbsp;  Nicolas&nbsp; Lopez  &nbsp;&nbsp;&nbsp;&nbsp; Esteban Fonseca<br> <br>Mind-Hub &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Cohort 35/36</p>
       </footer>
     <script src="./js/juguetes.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
