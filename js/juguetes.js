@@ -6,8 +6,13 @@ let inputsNumber = document.getElementById("botonRango")
 let carritoProductos = []
 let productosStorage = localStorage.getItem("Juguetes")
 productosStorage = JSON.parse(productosStorage) || []
-let arrayIdJugueteCarrito = []
-let productoIdStorage = []
+let juguetesSeleccionado = localStorage.getItem("Juguetes")
+juguetesSeleccionado = JSON.parse(juguetesSeleccionado) || []
+let medicamentoSeleccionado = localStorage.getItem("Medicamento")
+medicamentoSeleccionado = JSON.parse(medicamentoSeleccionado) ||[]
+let productoSeleccionado = []
+productoSeleccionado = productoSeleccionado.concat(medicamentoSeleccionado)
+productoSeleccionado = productoSeleccionado.concat(juguetesSeleccionado)
 
 async function mindyJuguetes() {
     try {
@@ -29,6 +34,20 @@ async function mindyJuguetes() {
         console.log(error);
     }
 }
+function nroCarrito(array){
+    if (array.length!==0){
+        let length = array.length
+        let nroCarrito= document.getElementById("nro-carrito-js")
+        nroCarrito.innerHTML=
+     `  ${length}
+     ` 
+         
+    }
+    
+}
+
+
+nroCarrito(productoSeleccionado)
 function eventoComprar(contenedorClass,array) {
     let botonCarrito = document.querySelectorAll(contenedorClass)
         botonCarrito.forEach( e => {
@@ -161,7 +180,7 @@ function menorStock(array){
     let arrayFiltrado= array.filter(producto=> producto.stock <= 3)
     arrayFiltrado.forEach(card=> {
         card.className="bg-danger"
-        console.log(card);
+        
     })
     
 }

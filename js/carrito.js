@@ -12,22 +12,48 @@ let datosReduce = [...reduceStats(productoSeleccionado)]
 
 let contenedorTabla = document.getElementById("tbody")
 let contenedorTablaF = document.getElementById("tfoot")
+
+
+function nroCarrito(array){
+  if (array.length!==0){
+      let length = array.length
+      let nroCarrito= document.getElementById("nro-carrito-js")
+      nroCarrito.innerHTML=
+   `  ${length}
+   ` 
+       
+  }
+  
+}
+
+
+nroCarrito(productoSeleccionado)
 function imprimirTabla (array,contenedor){
+   contenedor.innerHTML = ""
      array.forEach(e=>{
-        contenedor.innerHTML = ""
+      
+      
         contenedor.innerHTML +=`
         <tr>
     <td>           </td>
           <td class="text-light">${e.nombre}</td>
           <td class="text-light">${e.stock}</td>
-          <td class="text-light">.-$ ${e.precio}</td>
+          <td class="text-light">$ ${e.precio}</td>
           <td class="text-light">${e.tipo}</td>
-          <td class="text-light">${e.cantidad} <button id="menos">-</button> <button id="mas">+</button> </td>
+          <td class="text-light">${e.cantidad} <button class="menos">-</button> <button class="mas">+</button> </td>
         </tr>
         `
-        let botonMas = document.getElementById("mas")
-        let botonMenos = document.getElementById("menos")
-        botonMas.addEventListener("click",()=>{
+        
+        
+    }
+    )
+    let botonMas = document.querySelectorAll(".mas")
+    let botonMenos = document.querySelectorAll(".menos")
+    console.log(botonMenos);
+    botonMas.forEach(e =>{
+      
+      e.addEventListener("click",()=>{
+        console.log(e);
         let precioUnida = e.precio/ e.cantidad
         
         let productoConcatenar = {
@@ -38,27 +64,29 @@ function imprimirTabla (array,contenedor){
           cantidad: e.cantidad + 1
         }
         datosReduce = datosReduce.concat(productoConcatenar)
+        console.log(datosReduce);
         
         imprimirTabla(datosReduce,contenedor)
         
         
         })
-        botonMenos.addEventListener("click", () => {
-          let precioUnida = e.precio/ e.cantidad
-        
-          let productoConcatenar = {
-            nombre: e.nombre ,
-            stock: e.stock ,
-            precio: e.precio - precioUnida,
-            tipo: e.tipo,
-            cantidad: e.cantidad - 1
-          }
-          datosReduce = datosReduce.concat(productoConcatenar)
-          
-          imprimirTabla(datosReduce,contenedor)
-      })
     })
-
+    botonMenos.forEach(e => {
+      e.addEventListener("click", () => {
+        let precioUnida = e.precio/ e.cantidad
+      console.log("hola");
+        let productoConcatenar = {
+          nombre: e.nombre ,
+          stock: e.stock ,
+          precio: e.precio - precioUnida,
+          tipo: e.tipo,
+          cantidad: e.cantidad - 1
+        }
+        datosReduce = datosReduce.concat(productoConcatenar)
+        
+        imprimirTabla(datosReduce,contenedor)
+    })
+    })
 }
   imprimirTabla(datosReduce,contenedorTabla) 
 function concatProductos(array,arrayConcatenar) {

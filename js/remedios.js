@@ -3,8 +3,15 @@ let checkboxes = document.getElementById("filtro")
 let container = document.getElementById("container")
 let inputsNumber = document.getElementById("botonRango")
 let carritoProductos = []
-let productosStorage = localStorage.getItem("Medicamento")
-productosStorage = JSON.parse(productosStorage)
+let medicamentoStorage = localStorage.getItem("Medicamento") || []
+let medicamentoStorageArry = JSON.parse(medicamentoStorage) 
+carritoProductos = carritoProductos.concat(medicamentoStorageArry)
+let juguetesStorage = localStorage.getItem("Juguetes") || []
+let juguetesStorageArry = JSON.parse(juguetesStorage) 
+carritoProductos = carritoProductos.concat(juguetesStorageArry)
+
+
+
 
 let reinicio = document.getElementById("reiniciar")
 async function mindyMedicamentos() {
@@ -56,6 +63,20 @@ function eventoComprar(contenedorClass,array) {
             })
         })
 }
+function nroCarrito(array){
+    if (array.length!==0){
+        let length = array.length
+        let nroCarrito= document.getElementById("nro-carrito-js")
+        nroCarrito.innerHTML=
+     `  ${length}
+     ` 
+         
+    }
+    
+}
+
+
+nroCarrito(carritoProductos)
 // function imprimir cards de productos
 function cardCreator(array) {
     document.getElementById("container").innerHTML = ""

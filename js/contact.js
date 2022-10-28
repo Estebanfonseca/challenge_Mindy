@@ -39,16 +39,16 @@ contenedorId("enviar-js").addEventListener("click", () => {
 
 
 function nroCarrito(array){
-    if (array.length!==0){
-        printCarrito(array)
-    }
+  if (array.length!==0){
+      let length = array.length
+      let nroCarrito= document.getElementById("nro-carrito-js")
+      nroCarrito.innerHTML=
+   `  ${length}
+   ` 
+       
+  }
+  
 }
 
-function printCarrito(array){
-    let nroCarrito= document.getElementById("nro-carrito-js")
-    nroCarrito.innerHTML=
-     ` ${array.length}
-     `    
 
-}
-printCarrito(nroCarrito(cantidad))
+nroCarrito(cantidad)
