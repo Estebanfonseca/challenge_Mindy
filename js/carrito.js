@@ -1,7 +1,7 @@
 let juguetesSeleccionado = localStorage.getItem("Juguetes")
-juguetesSeleccionado = JSON.parse(juguetesSeleccionado)
+juguetesSeleccionado = JSON.parse(juguetesSeleccionado) || []
 let medicamentoSeleccionado = localStorage.getItem("Medicamento")
-medicamentoSeleccionado = JSON.parse(medicamentoSeleccionado)
+medicamentoSeleccionado = JSON.parse(medicamentoSeleccionado) ||[]
 let productoSeleccionado = []
 productoSeleccionado = concatProductos(medicamentoSeleccionado,productoSeleccionado)
 productoSeleccionado = concatProductos(juguetesSeleccionado,productoSeleccionado)
