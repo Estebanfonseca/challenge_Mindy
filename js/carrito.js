@@ -1,3 +1,4 @@
+let deleteAllProducts = document.getElementById("deleteAllProducts") 
 let juguetesSeleccionado = localStorage.getItem("Juguetes")
 juguetesSeleccionado = JSON.parse(juguetesSeleccionado) || []
 let medicamentoSeleccionado = localStorage.getItem("Medicamento")
@@ -69,3 +70,7 @@ function reduceStats (array){
     return vacio
   }
 
+deleteAllProducts.addEventListener('click',() =>{
+    localStorage.clear()
+    contenedorTabla.innerHTML = ''
+  })
