@@ -73,6 +73,16 @@ deleteAllProducts.addEventListener('click',() =>{
     localStorage.removeItem('Juguetes')
     localStorage.removeItem('Medicamento')
     contenedorTabla.innerHTML = ''
+    contenedorTablaF.innerHTML = `
+    <tr>
+<td class="text-light">Total</td>
+<td></td>
+<td></td>
+<td class="text-light">  </td>
+<td></td>
+<td class="text-light">  </td>
+</tr>
+   `
   })
 
 
