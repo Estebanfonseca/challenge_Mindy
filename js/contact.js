@@ -1,4 +1,12 @@
 let usuario = [];
+//carrito numeros de productos
+
+let productosStorage = localStorage.getItem("Juguetes")
+productosStorage = JSON.parse(productosStorage)
+let productosMedicamento = localStorage.getItem("Medicamento")
+productosMedicamento = JSON.parse(productosMedicamento)
+let cantidad = [...productosStorage].concat([...productosMedicamento])
+
 // ----------------------------Funciones---------------------------------------------------
 function contenedorId(id) {
   let contenedor = document.getElementById(id);
@@ -27,3 +35,20 @@ contenedorId("enviar-js").addEventListener("click", () => {
   alert("tus datos fueron enviados");
   localStorage.setItem("usuario", JSON.stringify(usuario));
 });
+
+
+
+function nroCarrito(array){
+    if (array.length!==0){
+        printCarrito(array)
+    }
+}
+
+function printCarrito(array){
+    let nroCarrito= document.getElementById("nro-carrito-js")
+    nroCarrito.innerHTML=
+     ` ${array.length}
+     `    
+
+}
+printCarrito(nroCarrito(cantidad))
