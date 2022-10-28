@@ -1,6 +1,7 @@
 let inputText = document.getElementById("text-search-js")
 let checkboxes = document.getElementById("filtro")
 let container = document.getElementById("container")
+let reinicio = document.getElementById("reiniciar")
 let inputsNumber = document.getElementById("botonRango")
 let carritoProductos = []
 let productosStorage = localStorage.getItem("Juguetes")
@@ -14,39 +15,27 @@ async function mindyJuguetes() {
         let products = await datos.json()
         let productos = products.response
         let juguetes = tipo(productos, "Juguete").sort((a,b) =>{ return a.stock -b.stock})
-        
-        
         cardCreator(juguetes)
-        // filtradoCheck(juguetes)
-        
         inputsNumber.addEventListener("click", () => { range(juguetes) })
-        
         inputText.addEventListener("keyup", () => {
             filtroText(range(juguetes), inputText.value)
-
-        
         })
-        
-        
-        // filtrado(productos)
+        reinicio.addEventListener("click", () => {
+            cardCreator(juguetes) })
     }
     catch (error) {
         console.log(error);
     }
-
 }
-
 function eventoComprar(contenedorClass,array) {
     let botonCarrito = document.querySelectorAll(contenedorClass)
-    
         botonCarrito.forEach( e => {
             e.addEventListener("click", (e) =>{
-                botonCarrito.classList.add("bg-dark")
+               /*  botonCarrito.classList.add("bg-dark") */
                 console.log(e);
                 const botonTarget = e.target
                 let productoFiltrado = []
                 productoFiltrado  = array.filter(e => {return e._id === botonTarget.id})
-                
                 carritoProductos = carritoProductos.concat(productoFiltrado)
                 localStorage.setItem("Juguetes",JSON.stringify(carritoProductos))
                 botonColor()
@@ -57,24 +46,17 @@ function eventoComprar(contenedorClass,array) {
 mindyJuguetes()
 /// funcion que filtra por tipo de producto
 function tipo(array, propiedad) {
-
     let filtrado = array.filter(array => array.tipo == [propiedad])
     return (filtrado)
-
 }
-
 function botonColor(){
-    
 }
 
 function cardCreator(array) {
-    
-    
     document.getElementById("container").innerHTML = ""
     if (array.length > 0) {
         array.forEach(card => {
             document.getElementById("container").innerHTML += `
-        
             <div class="card">
             <div class="card-img">
             <img src="${card.imagen}" alt="${card.nombre}" />
@@ -92,36 +74,26 @@ function cardCreator(array) {
             </button>
             </div>
             </div>
-           
-
-
-
-`})
+        `})
     } else {
         document.getElementById("container").innerHTML =`
         <h2>No se puede encontrar productos con este nombre</h2>`
     }
     eventoComprar(".compra",array)
-
 }
 function range(array) {
     document.getElementById("container").innerHTML = ""
     let min = document.getElementById("minimo")
-    
     let max = document.getElementById("maximo")
-    
     let precioFiltrado = array.filter(e => (min.value <= e.precio && e.precio <= max.value))
-   
     cardCreator(precioFiltrado)
-    if(precioFiltrado.length== 0){
+    if(precioFiltrado.length=== 0){
         document.getElementById("container").innerHTML = ""
         cardCreator(array)
         return array
     }
     return array
 }
-
-
 
 
 function filtroText(array, texto) {
@@ -138,14 +110,11 @@ function filtroText(array, texto) {
 }
 
 function prodNotFound() {
-
     container.innerHTML = `
     <div class="card ">
-    <p class="card-text"> <span class="fw-bold">"${inputText.value}"</span> No encontramos un producto que se ajuste a tu búsqueda.. </p> 
-   
+    <p class="card-text"> <span class="fw-bold">"${inputText.value}"</span> No encontramos un producto que se ajuste a tu búsqueda.. </p>
   </div>
     `
-
 }
 ///// hasta acá va Laila
 //Nico tarea: cambiar el color de productos con 3 unidades para venderlos más rápido (cambiar background de la card)
