@@ -136,7 +136,6 @@ function cardCreator(array) {
 }
 //cambiar color
 function cambiarColor(id){
-    console.log(id.id)
     productosStorage.filter(function(e){
     e.id== id
     id.className="bg-success border rounded"
@@ -145,8 +144,6 @@ function cambiarColor(id){
    
   }
   
-
-
 function range(array) {
     document.getElementById("container").innerHTML = ""
     let min = document.getElementById("minimo")
