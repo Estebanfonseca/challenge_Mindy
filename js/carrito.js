@@ -1,4 +1,4 @@
-let deleteAllProducts = document.getElementById("deleteAllProducts") 
+let deleteAllProducts = document.getElementById("deleteAllProducts")  
 let juguetesSeleccionado = localStorage.getItem("Juguetes")
 juguetesSeleccionado = JSON.parse(juguetesSeleccionado) || []
 let medicamentoSeleccionado = localStorage.getItem("Medicamento")
@@ -71,6 +71,7 @@ function reduceStats (array){
   }
 
 deleteAllProducts.addEventListener('click',() =>{
-    localStorage.clear()
+    localStorage.removeItem('Juguetes')
+    localStorage.removeItem('Medicamento')
     contenedorTabla.innerHTML = ''
   })
