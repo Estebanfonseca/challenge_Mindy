@@ -31,7 +31,7 @@ function eventoComprar(contenedorClass,array) {
     let botonCarrito = document.querySelectorAll(contenedorClass)
         botonCarrito.forEach( e => {
             e.addEventListener("click", (e) =>{
-                botonCarrito.classList.add("bg-dark")
+               /*  botonCarrito.classList.add("bg-dark") */
                 console.log(e);
                 const botonTarget = e.target
                 let productoFiltrado = []

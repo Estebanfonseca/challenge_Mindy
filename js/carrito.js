@@ -6,9 +6,8 @@ medicamentoSeleccionado = JSON.parse(medicamentoSeleccionado) ||[]
 let productoSeleccionado = []
 productoSeleccionado = concatProductos(medicamentoSeleccionado,productoSeleccionado)
 productoSeleccionado = concatProductos(juguetesSeleccionado,productoSeleccionado)
-
-
 let contenedorTabla = document.getElementById("tbody")
+let contenedorTablaF = document.getElementById("tfoot")
 function imprimirTabla (array,contenedor){
      array.forEach(e=>{
         contenedor.innerHTML +=`
@@ -75,3 +74,39 @@ deleteAllProducts.addEventListener('click',() =>{
     localStorage.removeItem('Medicamento')
     contenedorTabla.innerHTML = ''
   })
+
+
+  function total (array){
+    let lleno = []
+      let StateUno = {
+        precio: 0,
+        cantidad: 0 ,
+        }
+        console.log(array.cantidad)
+    let stats = array.reduce((element1,element2) => { 
+      return {
+            precio: element1.precio + element2.precio,
+            cantidad: Number(element1.cantidad)+ Number(element2.cantidad),
+        }
+    }, StateUno)
+      lleno = lleno.concat(stats)
+    
+    return lleno
+  }
+  console.log(total(reduceStats(productoSeleccionado)))
+
+  function imprimirTablaF (array,contenedor){
+    array.forEach(e=>{
+       contenedor.innerHTML +=`
+        <tr>
+   <td class="text-light">Total</td>
+   <td class="table-active"></td>
+   <td class="table-active"></td>
+   <td class="text-light">.-$ ${e.precio}</td>
+   <td class="table-active"></td>
+   <td class="text-light">${e.cantidad}</td>
+ </tr>
+       `
+   })
+  }
+imprimirTablaF(total(reduceStats(productoSeleccionado)),contenedorTablaF)
