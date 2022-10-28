@@ -54,7 +54,7 @@ function eventoComprar(contenedorClass,array) {
             e.addEventListener("click", (e) =>{
                /*  botonCarrito.classList.add("bg-dark") */
               cambiarColor(e.target);
-                console.log(array);
+                
                 const botonTarget = e.target
                 let productoFiltrado = []
                 productoFiltrado  = array.filter(e => {return e._id === botonTarget.id})
