@@ -5,10 +5,8 @@ let inputsNumber = document.getElementById("botonRango")
 let carritoProductos = []
 let productosStorage = localStorage.getItem("Medicamento")
 productosStorage = JSON.parse(productosStorage)
-let productosJuguetes= localStorage.getItem("Juguetes")
 
-
-
+let reinicio = document.getElementById("reiniciar")
 async function mindyMedicamentos() {
     try {
         let datos = await fetch('https://apipetshop.herokuapp.com/api/articulos?tipo=Juguete')
@@ -22,9 +20,9 @@ async function mindyMedicamentos() {
 
         inputText.addEventListener("keyup", () => {
              filtroText(range(medicamentos), inputText.value)
-
         })
-        // filtrado(productos)
+        reinicio.addEventListener("click", () => {
+            cardCreator(medicamentos) })
     }
     catch (error) {
         console.log(error);
@@ -60,6 +58,7 @@ function eventoComprar(contenedorClass,array) {
 }
 // function imprimir cards de productos
 function cardCreator(array) {
+    document.getElementById("container").innerHTML = ""
     if (array.length > 0) {
         array.forEach(card => {
             document.getElementById("container").innerHTML += `
