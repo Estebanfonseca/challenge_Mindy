@@ -1,11 +1,9 @@
-let productoSeleccionado = localStorage.getItem("producto")
+let productoSeleccionado = localStorage.getItem("Juguetes")
 productoSeleccionado = JSON.parse(productoSeleccionado)
+productoSeleccionado.forEach(e=>
+ e.cantidad = 0 )
 console.log(productoSeleccionado)
-
 let contenedorTabla = document.getElementById("tbody")
-
-
-
 function imprimirTabla (array,contenedor){
      array.forEach(e=>{
         contenedor.innerHTML +=`
@@ -15,21 +13,27 @@ function imprimirTabla (array,contenedor){
     <td class="text-light">${e.stock}</td>
     <td class="text-light">.-$ ${e.precio}</td>
     <td class="text-light">${e.tipo}</td>
-    <td class="text-light">1</td>
+    <td class="text-light">${e.cantidad}</td>
   </tr>
         `
     })
 
 }
-imprimirTabla(productoSeleccionado,contenedorTabla)
-let arreglo = []
-function acumulador (array){
-  let cantidad = array.reduce((element1,element2) => {
-    return {
-        nombre: element1.nombre
-        cantidad1: element1.cantidad1 + element2.cantidad1,
-    }
-},arreglo)
-}
-acumulador(productoSeleccionado)
-console.log(acumulador(productoSeleccionado))
+  imprimirTabla(comparador(productoSeleccionado),contenedorTabla)
+
+
+
+   function comparador (array){
+    let objeto = {};
+    let a ;
+    a = array.filter(function(e) {
+    let existe = !objeto[e._id];
+    objeto[e._id] = true;
+    return existe;
+    });
+    console.log(a)
+    let f
+    f= a.map(b=>({nombre:b.nombre, stock: b.stock-1 ,precio: b.precio,tipo:b.tipo,cantidad :b.cantidad +1,}))
+    return f
+  }
+ console.log(comparador(productoSeleccionado))
